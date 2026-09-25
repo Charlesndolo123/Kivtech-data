@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kivtech Data Solutions — affordable data bundles, minutes and SMS with 24/7 automated delivery." />
+  <meta name="theme-color" content="#012a62" />
+  <title>Kivtech Data Solutions | Fast, Reliable, Instant!</title>
+
+  <style>
+    :root{
+      --navy:#012a62;
+      --blue:#0569d9;
+      --blue-soft:#eaf4ff;
+      --teal:#00b799;
+      --teal-dark:#008f78;
+      --teal-soft:#e8fbf6;
+      --white:#ffffff;
+      --ink:#102a43;
+      --muted:#60758a;
+      --line:#e5edf5;
+      --bg:#f7fbff;
+      --shadow:0 16px 45px rgba(1,42,98,.12);
+      --radius:22px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+
+    .container{width:min(92%,var(--max));margin:auto}
+
+    /* HEADER */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .logo{
+      width:205px;
+      height:auto;
+      object-fit:contain;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:25px;
+      font-size:14px;
+      font-weight:700;
+      color:#183b62;
+    }
+    .nav-links a{
+      position:relative;
+      padding:28px 0;
+    }
+    .nav-links a:hover,
+    .nav-links a.active{color:var(--blue)}
+    .nav-links a.active:after{
+      content:"";
+      position:absolute;
+      left:0;right:0;bottom:18px;
+      height:3px;border-radius:10px;
+      background:var(--teal);
+    }
+    .menu-btn{
+      display:none;
+      border:0;
+      background:var(--blue-soft);
+      color:var(--navy);
+      width:45px;height:45px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:24px;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 85% 15%,rgba(0,183,153,.32),transparent 25%),
+        linear-gradient(120deg,#012a62 0%,#0356ae 52%,#00a88e 100%);
+      color:#fff;
+    }
+    .hero-inner{
+      min-height:530px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      gap:35px;
+      padding:55px 0;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.24);
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+    .hero h1{
+      font-size:clamp(42px,6vw,72px);
+      line-height:.98;
+      letter-spacing:-2px;
+      margin-bottom:18px;
+    }
+    .hero h1 span{color:#55f0d1}
+    .hero p{
+      max-width:590px;
+      font-size:18px;
+      color:rgba(255,255,255,.9);
+      margin-bottom:28px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:48px;
+      padding:0 19px;
+      border-radius:13px;
+      border:1px solid transparent;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .btn-primary{
+      background:var(--teal);
+      color:#032c29;
+      box-shadow:0 10px 25px rgba(0,183,153,.25);
+    }
+    .btn-primary:hover{transform:translateY(-2px);background:#21cfb0}
+    .btn-light{background:#fff;color:var(--navy)}
+    .btn-outline{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
+    .hero-trust{
+      display:flex;gap:20px;flex-wrap:wrap;
+      margin-top:25px;
+      font-size:13px;font-weight:700;
+    }
+    .hero-trust span{display:flex;align-items:center;gap:7px}
+
+    .offer-card{
+      position:relative;
+      background:#fff;
+      color:var(--navy);
+      border-radius:30px;
+      padding:30px;
+      box-shadow:0 25px 70px rgba(0,0,0,.2);
+      overflow:hidden;
+    }
+    .offer-card:before{
+      content:"";
+      position:absolute;
+      width:190px;height:190px;
+      border-radius:50%;
+      background:rgba(0,183,153,.15);
+      right:-60px;top:-65px;
+    }
+    .offer-label{
+      display:inline-block;
+      background:var(--teal-soft);
+      color:var(--teal-dark);
+      padding:6px 11px;
+      border-radius:999px;
+      font-size:12px;font-weight:900;
+      margin-bottom:14px;
+    }
+    .offer-card h2{
+      font-size:64px;
+      line-height:.9;
+      letter-spacing:-3px;
+      margin-bottom:5px;
+    }
+    .offer-card h2 small{
+      display:block;
+      font-size:21px;
+      letter-spacing:0;
+    }
+    .offer-price{
+      color:var(--blue);
+      font-size:58px;
+      line-height:1;
+      font-weight:950;
+      letter-spacing:-3px;
+    }
+    .offer-price span{font-size:20px;letter-spacing:0}
+    .offer-deadline{
+      display:inline-block;
+      background:var(--navy);
+      color:#fff;
+      padding:7px 12px;
+      border-radius:8px;
+      font-weight:900;
+      margin:10px 0 18px;
+    }
+    .offer-note{color:var(--muted);font-size:14px}
+    .mini-phone{
+      margin-top:22px;
+      height:92px;
+      border-radius:20px;
+      background:linear-gradient(135deg,#eaf4ff,#e8fbf6);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:40px;
+    }
+
+    /* TILL BAR */
+    .till-wrap{margin-top:-30px;position:relative;z-index:5}
+    .till-card{
+      background:var(--navy);
+      color:#fff;
+      border:5px solid #fff;
+      box-shadow:var(--shadow);
+      border-radius:25px;
+      padding:22px 25px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .till-label{font-size:13px;color:#bcd5ef;font-weight:800}
+    .till-number{
+      color:#55f0d1;
+      font-size:clamp(30px,5vw,48px);
+      line-height:1;
+      font-weight:950;
+      letter-spacing:1px;
+    }
+    .till-copy{font-size:13px;color:#d8e8f7}
+    .copy-btn{
+      white-space:nowrap;
+      background:#fff;color:var(--navy);
+      border:0;border-radius:12px;
+      padding:13px 18px;
+      font-weight:900;cursor:pointer;
+    }
+    .copy-btn:hover{background:var(--teal-soft)}
+
+    /* SECTION */
+    .section{padding:80px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+    .kicker{
+      color:var(--teal-dark);
+      text-transform:uppercase;
+      letter-spacing:1.3px;
+      font-size:12px;font-weight:950;
+      margin-bottom:7px;
+    }
+    .section-head h2{font-size:clamp(30px,4vw,44px);line-height:1.1;color:var(--navy)}
+    .section-head p{color:var(--muted);margin-top:10px}
+
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:15px;
+    }
+    .service{
+      min-height:205px;
+      padding:22px;
+      border-radius:20px;
+      color:#fff;
+      position:relative;
+      overflow:hidden;
+      transition:.2s ease;
+      box-shadow:0 12px 30px rgba(1,42,98,.10);
+    }
+    .service:hover{transform:translateY(-5px)}
+    .service:nth-child(odd){background:linear-gradient(150deg,#0577e8,#034a9a)}
+    .service:nth-child(even){background:linear-gradient(150deg,#00b799,#007e6b)}
+    .service-icon{
+      width:48px;height:48px;border-radius:14px;
+      background:rgba(255,255,255,.18);
+      display:grid;place-items:center;
+      font-size:24px;margin-bottom:22px;
+    }
+    .service h3{font-size:18px;margin-bottom:5px}
+    .service p{font-size:13px;color:rgba(255,255,255,.86)}
+    .service .arrow{
+      position:absolute;right:17px;bottom:16px;
+      width:34px;height:34px;border-radius:50%;
+      background:#fff;color:var(--navy);
+      display:grid;place-items:center;font-weight:900;
+    }
+
+    /* HOW TO BUY */
+    .how{
+      background:linear-gradient(180deg,#eef8ff,#fff);
+    }
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      max-width:1000px;
+      margin:auto;
+    }
+    .step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:28px;
+      position:relative;
+      box-shadow:0 10px 28px rgba(1,42,98,.06);
+    }
+    .step-num{
+      width:45px;height:45px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--teal);
+      color:#003d34;font-weight:950;
+      margin-bottom:18px;
+    }
+    .step h3{color:var(--navy);margin-bottom:7px}
+    .step p{font-size:14px;color:var(--muted)}
+    .step strong{color:var(--navy)}
+
+    /* BENEFITS */
+    .benefits{
+      background:var(--navy);
+      color:#fff;
+    }
+    .benefit-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+    .benefit{
+      padding:25px 18px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      text-align:center;
+      background:rgba(255,255,255,.04);
+    }
+    .benefit-icon{
+      width:55px;height:55px;
+      margin:0 auto 13px;
+      border-radius:50%;
+      background:rgba(0,183,153,.16);
+      color:#55f0d1;
+      display:grid;place-items:center;
+      font-size:23px;
+    }
+    .benefit h3{font-size:16px}
+    .benefit p{font-size:12px;color:#bcd5ef;margin-top:4px}
+
+    /* PROMO */
+    .promo{
+      border-radius:28px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 80% 20%,rgba(0,183,153,.4),transparent 25%),
+        linear-gradient(120deg,#012a62,#0569d9 55%,#00a98d);
+      color:#fff;
+      padding:38px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      box-shadow:var(--shadow);
+    }
+    .promo h2{font-size:clamp(28px,4vw,46px);line-height:1.05}
+    .promo p{color:#dcecff;margin-top:8px}
+    .promo-badge{
+      min-width:210px;
+      text-align:center;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.08);
+      border-radius:20px;
+    }
+    .promo-badge strong{display:block;font-size:32px;color:#55f0d1}
+
+    /* FAQ */
+    .faq{max-width:850px;margin:auto}
+    details{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:17px 20px;
+      margin-bottom:10px;
+    }
+    summary{cursor:pointer;font-weight:800;color:var(--navy)}
+    details p{color:var(--muted);font-size:14px;padding-top:10px}
+
+    /* FOOTER */
+    footer{
+      background:#021f49;
+      color:#dbe9f7;
+      padding:55px 0 20px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:45px;
+    }
+    .footer-logo{
+      width:220px;
+      margin-bottom:15px;
+      /* the supplied logo has dark text; the white panel below keeps it readable */
+      background:#fff;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    footer h3{color:#fff;font-size:15px;margin-bottom:14px}
+    footer p,footer a{font-size:13px;color:#b8cee3}
+    footer a:hover{color:#55f0d1}
+    .footer-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .contact-line{margin-bottom:9px}
+    .copyright{
+      border-top:1px solid rgba(255,255,255,.1);
+      margin-top:35px;padding-top:17px;
+      display:flex;justify-content:space-between;gap:15px;
+      font-size:12px;color:#8fa9c2;
+    }
+
+    /* FLOATING ACTIONS */
+    .whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:1200;
+      background:#16b967;
+      color:#fff;
+      padding:12px 17px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .scroll-top{
+      position:fixed;
+      right:18px;
+      bottom:78px;
+      z-index:1199;
+      width:44px;height:44px;
+      border:0;border-radius:50%;
+      background:var(--navy);
+      color:#55f0d1;
+      font-size:21px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 8px 22px rgba(0,0,0,.18);
+      opacity:0;visibility:hidden;
+      transform:translateY(12px);
+      transition:.25s ease;
+    }
+    .scroll-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+    .toast{
+      position:fixed;
+      left:50%;bottom:25px;
+      transform:translate(-50%,20px);
+      background:#08294f;color:#fff;
+      padding:11px 16px;border-radius:10px;
+      font-size:13px;font-weight:800;
+      opacity:0;pointer-events:none;
+      transition:.25s ease;z-index:2000;
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    /* MOBILE */
+    @media(max-width:900px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:0;right:0;top:78px;
+        background:#fff;
+        padding:12px 5%;
+        border-bottom:1px solid var(--line);
+        box-shadow:0 12px 25px rgba(1,42,98,.08);
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{padding:13px 0}
+      .nav-links a.active:after{display:none}
+      .menu-btn{display:block}
+      .hero-inner{grid-template-columns:1fr;min-height:auto}
+      .offer-card{max-width:620px}
+      .services{grid-template-columns:repeat(3,1fr)}
+      .benefit-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:620px){
+      .logo{width:170px}
+      .nav{min-height:68px}
+      .nav-links{top:68px}
+      .hero-inner{padding:38px 0}
+      .hero h1{font-size:43px}
+      .hero p{font-size:15px}
+      .offer-card{padding:24px}
+      .offer-card h2{font-size:50px}
+      .offer-price{font-size:47px}
+      .till-wrap{margin-top:-18px}
+      .till-card{padding:18px;display:grid;grid-template-columns:1fr auto}
+      .till-number{font-size:32px}
+      .till-copy{grid-column:1/-1}
+      .copy-btn{grid-column:2;grid-row:1/3}
+      .section{padding:60px 0}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .service{min-height:185px;padding:18px}
+      .steps{grid-template-columns:1fr}
+      .benefit-grid{grid-template-columns:1fr 1fr}
+      .promo{padding:27px;display:block}
+      .promo-badge{margin-top:20px}
+      .footer-grid{grid-template-columns:1fr}
+      .copyright{display:block}
+      .copyright span{display:block;margin-top:5px}
+      .whatsapp{right:14px;bottom:14px}
+      .scroll-top{right:14px;bottom:70px}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#home" aria-label="Kivtech Data Solutions home">
+        <img src="kivtech-logo-transparent.png" alt="Kivtech Data Solutions" class="logo">
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Data Bundles</a>
+        <a href="#services">Tunukiwa</a>
+        <a href="#services">Monthly</a>
+        <a href="#services">Minutes</a>
+        <a href="#services">SMS</a>
+        <a href="#how-to-buy">How to Buy</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#footer">Blogs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO / FEATURED OFFER -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">● 24/7 AUTOMATED SERVICE</div>
+          <h1>Fast data.<br><span>Simple.</span> Reliable.</h1>
+          <p>
+            Get affordable data bundles, minutes and SMS offers.
+            Choose your offer, send payment to our automated Till and get your bundle instantly.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore Offers →</a>
+            <a class="btn btn-outline" href="#how-to-buy">How to Buy</a>
+          </div>
+
+          <div class="hero-trust">
+            <span>✓ 24/7 Automated</span>
+            <span>✓ Instant Delivery</span>
+            <span>✓ Affordable Offers</span>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <span class="offer-label">LIMITED-TIME FEATURED OFFER</span>
+          <h2>1GB <small>FOR ONLY</small></h2>
+          <div class="offer-price">KSh 55</div>
+          <div class="offer-deadline">UNTIL MIDNIGHT</div>
+          <p class="offer-note">
+            Replace this featured offer whenever you have a new promotion.
+            The rest of the homepage can stay exactly the same.
+          </p>
+          <div class="mini-phone">📱 ⚡ 📶</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TILL -->
+    <div class="container till-wrap">
+      <div class="till-card">
+        <div>
+          <div class="till-label">OUR AUTOMATED TILL NUMBER</div>
+          <div class="till-number">5797885</div>
+        </div>
+        <button class="copy-btn" id="copyTill">▣ Copy Till</button>
+        <div class="till-copy">Send your payment and get your bundle instantly.</div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Choose what you need</div>
+          <h2>Affordable offers in one place</h2>
+          <p>Browse our available data, minutes, SMS, Tunukiwa and monthly offers.</p>
+        </div>
+
+        <div class="services">
+          <a class="service" href="#">
+            <div class="service-icon">◉</div>
+            <h3>Data Bundles</h3>
+            <p>Browse affordable data offers.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="service" href="#">
+            <div class="service-icon">☎</div>
+            <h3>Minutes</h3>
+            <p>Talk more and spend less.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="service" href="#">
+            <div class="service-icon">✉</div>
+            <h3>SMS</h3>
+            <p>Stay connected with affordable SMS.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="service" href="#">
+            <div class="service-icon">★</div>
+            <h3>Tunukiwa</h3>
+            <p>Get more with Tunukiwa offers.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="service" href="#">
+            <div class="service-icon">▣</div>
+            <h3>Monthly</h3>
+            <p>Best-value monthly bundles.</p>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section class="section how" id="how-to-buy">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Simple & easy</div>
+          <h2>How to Buy</h2>
+          <p>You don't buy directly from the website. Follow these three simple steps.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">1</div>
+            <h3>Choose Your Offer</h3>
+            <p>Select the bundle you want — Data, Minutes, SMS, Tunukiwa or Monthly.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-num">2</div>
+            <h3>Send Payment</h3>
+            <p>Send the required amount to our automated Till Number <strong>5797885</strong>.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-num">3</div>
+            <h3>Receive Your Bundle</h3>
+            <p>Your selected offer is delivered automatically after successful payment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section benefits">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker" style="color:#55f0d1">Why choose us</div>
+          <h2 style="color:#fff">Kivtech Data Solutions</h2>
+          <p style="color:#bcd5ef">Built around convenience, automation and affordable connectivity.</p>
+        </div>
+
+        <div class="benefit-grid">
+          <div class="benefit">
+            <div class="benefit-icon">◷</div>
+            <h3>24/7 Automated</h3>
+            <p>Service designed to run around the clock.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">⚡</div>
+            <h3>Instant Delivery</h3>
+            <p>Automated delivery after successful payment.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">✓</div>
+            <h3>Reliable</h3>
+            <p>A simple process from offer to delivery.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">◆</div>
+            <h3>Affordable</h3>
+            <p>Offers designed to give you more value.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROMOTION -->
+    <section class="section">
+      <div class="container">
+        <div class="promo">
+          <div>
+            <div class="kicker" style="color:#55f0d1">Featured promotion</div>
+            <h2>More data.<br>More possibilities.</h2>
+            <p>Keep this section for your latest campaign, seasonal promotion or special offer.</p>
+          </div>
+          <div class="promo-badge">
+            <span>Today's featured deal</span>
+            <strong>1GB = KSh 55</strong>
+            <small>Until midnight</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faqs">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Need help?</div>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Can I buy directly from the website?</summary>
+            <p>No. The website guides you through the process. Payment is made through our automated Till Number 5797885.</p>
+          </details>
+          <details>
+            <summary>What Till Number should I use?</summary>
+            <p>Use our automated Till Number: <strong>5797885</strong>.</p>
+          </details>
+          <details>
+            <summary>How fast will I receive my bundle?</summary>
+            <p>Our service is automated and the selected offer is delivered after successful payment.</p>
+          </details>
+          <details>
+            <summary>Can I buy a bundle for someone else?</summary>
+            <p>Yes. Use the recipient's number when following the applicable purchase instructions, or contact support if you need assistance.</p>
+          </details>
+          <details>
+            <summary>What if my Safaricom confirmation SMS delays?</summary>
+            <p>If your payment was successful but the confirmation SMS is delayed, you can verify the bundle balance on the purchase number using the relevant Safaricom balance-check option.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="kivtech-logo-transparent.png" alt="Kivtech Data Solutions" class="footer-logo">
+          <p>Fast, reliable, instant connectivity solutions with 24/7 automated service.</p>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">Data Bundles</a>
+            <a href="#services">Tunukiwa</a>
+            <a href="#services">Monthly</a>
+            <a href="#services">Minutes</a>
+            <a href="#services">SMS</a>
+            <a href="#how-to-buy">How to Buy</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#">Blogs</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contact Us</h3>
+          <p class="contact-line">☎ <a href="tel:+254715024923">0715 024 923</a></p>
+          <p class="contact-line">✉ <a href="mailto:support@kivtechdatasolutions.co.ke">support@kivtechdatasolutions.co.ke</a></p>
+          <p class="contact-line">🌐 <a href="https://www.kivtechdatasolutions.co.ke">www.kivtechdatasolutions.co.ke</a></p>
+          <p class="contact-line">Till: <strong>5797885</strong></p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <span>© <span id="year"></span> Kivtech Data Solutions. All rights reserved.</span>
+        <span>Fast, Reliable, Instant!</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <a class="whatsapp" href="https://wa.me/254715024923?text=Hello%20Kivtech%20Data%20Solutions%2C%20I%20need%20help." target="_blank" rel="noopener">
+    ☎ Chat with us on WhatsApp
+  </a>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <div class="toast" id="toast">Till number copied!</div>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open);
+      menuBtn.textContent = open ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Copy Till
+    const copyTill = document.getElementById("copyTill");
+    const toast = document.getElementById("toast");
+
+    copyTill.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText("5797885");
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 1800);
+      } catch {
+        alert("Our Till Number is 5797885");
+      }
+    });
+
+    // Scroll-to-top
+    const scrollTop = document.getElementById("scrollTop");
+
+    window.addEventListener("scroll", () => {
+      scrollTop.classList.toggle("show", window.scrollY > 400);
+    });
+
+    scrollTop.addEventListener("click", () => {
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
