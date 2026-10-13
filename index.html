@@ -414,6 +414,44 @@
     @media(max-width:900px){.offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:520px){.offer-grid{grid-template-columns:1fr}.offer-tab{padding:9px 12px;font-size:13px}.package{padding:19px}}
 
+    /* Polished offer interactions and purchase guide modal */
+    @keyframes limitedBlink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.48;transform:scale(1.045)}}
+    @keyframes softPulse{0%,100%{box-shadow:0 25px 70px rgba(0,0,0,.2),0 0 0 0 rgba(255,190,35,0)}50%{box-shadow:0 25px 70px rgba(0,0,0,.2),0 0 0 9px rgba(255,190,35,.18)}}
+    .offer-label{animation:limitedBlink 1.15s ease-in-out infinite;background:#fff0e8;color:#b42318;border:1px solid #ffd0c4}
+    .offer-card{animation:softPulse 2.4s ease-in-out infinite}
+    .service,.package,.offer-tab,.btn,.copy-btn{transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease,border-color .22s ease}
+    .service:hover,.package:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(1,42,98,.15)}
+    .btn:hover,.copy-btn:hover,.offer-tab:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(1,42,98,.16)}
+    .btn:active,.copy-btn:active,.offer-tab:active{transform:scale(.97)}
+    .package .btn-primary{background:linear-gradient(135deg,#00d0aa,#00ad91);color:#032c29;box-shadow:0 8px 18px rgba(0,183,153,.22)}
+    .package .btn-primary:hover{background:var(--navy);color:#fff}
+    .offer-label:focus-visible,.btn:focus-visible,.copy-btn:focus-visible,.offer-tab:focus-visible{outline:3px solid #ffbd2e;outline-offset:3px}
+    .purchase-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(1,20,45,.72);backdrop-filter:blur(7px)}
+    .purchase-modal.open{display:flex;animation:modalFade .18s ease-out}
+    @keyframes modalFade{from{opacity:0}to{opacity:1}}
+    .purchase-dialog{width:min(100%,620px);max-height:min(90vh,850px);overflow:auto;background:#fff;border-radius:24px;padding:clamp(20px,4vw,32px);box-shadow:0 30px 90px rgba(0,0,0,.3);position:relative;animation:dialogPop .24s cubic-bezier(.2,.8,.2,1)}
+    @keyframes dialogPop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .modal-close{position:absolute;top:14px;right:14px;border:0;border-radius:50%;width:40px;height:40px;background:#eef4fb;color:var(--navy);font-size:24px;cursor:pointer}
+    .modal-kicker{font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:950;color:var(--teal-dark)}
+    .purchase-dialog h2{color:var(--navy);font-size:clamp(25px,5vw,34px);line-height:1.15;margin:6px 42px 8px 0}
+    .modal-intro{color:var(--muted);margin-bottom:18px}
+    .selected-offer{padding:15px 17px;border-radius:16px;background:linear-gradient(135deg,#eaf4ff,#e8fbf6);display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0}
+    .selected-offer strong{display:block;color:var(--navy);font-size:20px}
+    .selected-offer .selected-price{font-size:25px;font-weight:950;color:var(--blue);white-space:nowrap}
+    .modal-till{border:1px dashed #9bb9d5;border-radius:15px;padding:15px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .modal-till small{display:block;color:var(--muted);font-weight:750}
+    .modal-till strong{font-size:28px;color:var(--navy);letter-spacing:1px}
+    .modal-copy-actions{display:flex;gap:8px;flex-wrap:wrap}
+    .modal-copy-actions button{border:0;border-radius:10px;padding:10px 13px;font-weight:850;cursor:pointer;background:var(--navy);color:white}
+    .modal-copy-actions button.secondary{background:var(--teal-soft);color:var(--navy)}
+    .modal-steps{list-style:none;display:grid;gap:10px;margin:18px 0}
+    .modal-steps li{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;color:#38516a;font-size:14px}
+    .modal-steps .num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900}
+    .modal-warning{padding:12px 14px;border-radius:12px;background:#fff8e8;color:#6c4b00;font-size:13px;margin-top:12px}
+    body.modal-open{overflow:hidden}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+    @media(max-width:520px){.purchase-dialog{padding:22px 17px;border-radius:20px}.selected-offer{align-items:flex-start;flex-direction:column}.modal-till strong{font-size:24px}}
+
     /* FAQ */
     .faq{max-width:850px;margin:auto}
     details{
@@ -845,6 +883,29 @@
     </div>
   </footer>
 
+  <!-- PURCHASE GUIDE MODAL: instructions only; payment is completed manually in M-PESA -->
+  <div class="purchase-modal" id="purchaseModal" role="presentation" aria-hidden="true">
+    <section class="purchase-dialog" role="dialog" aria-modal="true" aria-labelledby="purchaseTitle" aria-describedby="purchaseIntro">
+      <button class="modal-close" id="closePurchaseModal" type="button" aria-label="Close purchase instructions">×</button>
+      <div class="modal-kicker">One last step to your bundle</div>
+      <h2 id="purchaseTitle">Please follow these steps to buy this offer</h2>
+      <p class="modal-intro" id="purchaseIntro">You do not pay on this website. Open M-PESA on your phone and follow the instructions below.</p>
+      <div class="selected-offer"><div><small>YOUR SELECTED OFFER</small><strong id="modalOfferName">Offer</strong></div><div class="selected-price" id="modalOfferPrice">KSh 0</div></div>
+      <div class="modal-till"><div><small>BUY GOODS TILL NUMBER</small><strong>5797885</strong></div><div class="modal-copy-actions"><button type="button" id="modalCopyTill">▣ Copy Till</button><button type="button" class="secondary" id="modalCopyAmount">Copy Amount</button></div></div>
+      <ol class="modal-steps">
+        <li><span class="num">1</span><span><strong>Open M-PESA</strong><br>Open the M-PESA menu on your phone.</span></li>
+        <li><span class="num">2</span><span><strong>Select Lipa na M-PESA</strong><br>Choose Lipa na M-PESA.</span></li>
+        <li><span class="num">3</span><span><strong>Choose Buy Goods and Services</strong><br>Select the Buy Goods and Services option.</span></li>
+        <li><span class="num">4</span><span><strong>Enter Till Number 5797885</strong><br>Use the Copy Till button above to copy it.</span></li>
+        <li><span class="num">5</span><span><strong>Enter the exact amount</strong><br>Enter <b id="modalAmountText">the selected offer price</b>.</span></li>
+        <li><span class="num">6</span><span><strong>Confirm payment</strong><br>Check the details, enter your M-PESA PIN and confirm.</span></li>
+        <li><span class="num">7</span><span><strong>Receive your bundle</strong><br>Your existing automated service handles fulfilment after successful payment.</span></li>
+      </ol>
+      <div class="modal-warning">Please verify the offer name and amount before confirming your payment. Never share your M-PESA PIN with anyone.</div>
+      <button class="btn btn-primary" id="donePurchaseModal" type="button" style="width:100%;margin-top:18px">Got it — I'll pay with M-PESA</button>
+    </section>
+  </div>
+
   <!-- FLOATING BUTTONS -->
   <a class="whatsapp" href="https://wa.me/254715024923?text=Hello%20Kivtech%20Data%20Solutions%2C%20I%20need%20help." target="_blank" rel="noopener">
     ☎ Chat with us on WhatsApp
@@ -923,7 +984,7 @@
           <div class="package-price">KSh ${offer.price.toLocaleString("en-KE")}</div>
           <p class="package-validity">Validity: ${offer.validity}</p>
           <div class="buy-guide">
-            <a class="btn btn-primary" href="#how-to-buy">How to Buy</a>
+            <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}">Buy Now</button>
             <button class="btn btn-copy-amount" type="button" data-copy-amount="${offer.price}">Copy Amount</button>
           </div>
         </article>`).join("");
@@ -933,15 +994,53 @@
     renderOffers();
     document.querySelectorAll(".offer-tab").forEach(button => button.addEventListener("click", () => renderOffers(button.dataset.filter)));
     document.querySelectorAll("[data-category-link]").forEach(link => link.addEventListener("click", () => renderOffers(link.dataset.categoryLink)));
+
+    // Offer-specific Buy Now modal: the website provides instructions only; M-PESA payment is manual.
+    const purchaseModal = document.getElementById("purchaseModal");
+    const closePurchaseModal = document.getElementById("closePurchaseModal");
+    let selectedOffer = null;
+    let lastFocusedElement = null;
+    function openPurchaseModal(offer){
+      selectedOffer = offer;
+      lastFocusedElement = document.activeElement;
+      document.getElementById("modalOfferName").textContent = `${offer.title} · ${categoryNames[offer.category]}`;
+      document.getElementById("modalOfferPrice").textContent = `KSh ${offer.price.toLocaleString("en-KE")}`;
+      document.getElementById("modalAmountText").textContent = `KSh ${offer.price.toLocaleString("en-KE")}`;
+      purchaseModal.classList.add("open");
+      purchaseModal.setAttribute("aria-hidden","false");
+      document.body.classList.add("modal-open");
+      closePurchaseModal.focus();
+    }
+    function closeModal(){
+      purchaseModal.classList.remove("open");
+      purchaseModal.setAttribute("aria-hidden","true");
+      document.body.classList.remove("modal-open");
+      if(lastFocusedElement) lastFocusedElement.focus();
+    }
+    closePurchaseModal.addEventListener("click",closeModal);
+    document.getElementById("donePurchaseModal").addEventListener("click",closeModal);
+    purchaseModal.addEventListener("click",event=>{if(event.target===purchaseModal)closeModal()});
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&purchaseModal.classList.contains("open"))closeModal()});
+    document.getElementById("modalCopyTill").addEventListener("click",async()=>{
+      try{await navigator.clipboard.writeText("5797885");showToast("Till number copied!")}
+      catch{showToast("Till Number: 5797885")}
+    });
+    document.getElementById("modalCopyAmount").addEventListener("click",async()=>{
+      if(!selectedOffer)return;
+      try{await navigator.clipboard.writeText(String(selectedOffer.price));showToast(`KSh ${selectedOffer.price.toLocaleString("en-KE")} copied!`)}
+      catch{showToast(`Offer amount: KSh ${selectedOffer.price}`)}
+    });
+    function showToast(message){toast.textContent=message;toast.classList.add("show");setTimeout(()=>{toast.classList.remove("show");toast.textContent="Till number copied!"},1800)}
+
     offerGrid.addEventListener("click", async event => {
+      const buyButton = event.target.closest("[data-buy-offer]");
+      if(buyButton){openPurchaseModal(offers[Number(buyButton.dataset.buyOffer)]);return;}
       const button = event.target.closest("[data-copy-amount]");
       if (!button) return;
       const amount = button.dataset.copyAmount;
       try {
         await navigator.clipboard.writeText(amount);
-        toast.textContent = `KSh ${Number(amount).toLocaleString("en-KE")} copied!`;
-        toast.classList.add("show");
-        setTimeout(() => { toast.classList.remove("show"); toast.textContent = "Till number copied!"; }, 1800);
+        showToast(`KSh ${Number(amount).toLocaleString("en-KE")} copied!`);
       } catch {
         alert(`Offer amount: KSh ${amount}`);
       }
