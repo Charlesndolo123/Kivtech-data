@@ -593,6 +593,149 @@
       .whatsapp{right:14px;bottom:14px}
       .scroll-top{right:14px;bottom:70px}
     }
+
+
+    /* Marketplace-inspired visual refresh — Kivtech navy, blue and teal are preserved. */
+    :root{--radius:18px;--shadow:0 10px 28px rgba(1,42,98,.09)}
+    body{background:#f5f8fc;color:#152a43}
+    .header{box-shadow:0 3px 15px rgba(1,42,98,.05)}
+    .nav{min-height:72px}
+    .logo{width:190px}
+    .hero{background:linear-gradient(125deg,#012a62 0%,#0569d9 68%,#008f78 100%)}
+    .hero-inner{min-height:410px;padding:42px 0;gap:28px}
+    .hero h1{font-size:clamp(36px,4.6vw,58px);letter-spacing:-1.6px;line-height:1.03}
+    .hero p{font-size:16px;max-width:520px}
+    .offer-card{border-radius:22px;padding:25px;box-shadow:0 18px 45px rgba(0,0,0,.16)}
+    .offer-card h2{font-size:54px}
+    .offer-price{font-size:50px}
+    .mini-phone{height:65px;font-size:30px;margin-top:15px;border:1px solid #d9e8f8}
+    .till-wrap{margin-top:-20px}
+    .till-card{border:3px solid #fff;border-radius:18px;padding:17px 22px;box-shadow:0 10px 30px rgba(1,42,98,.12)}
+    .section{padding:58px 0}
+    .section-head{margin-bottom:27px}
+    .section-head h2{font-size:clamp(27px,3.5vw,38px);letter-spacing:-.6px}
+    .services{grid-template-columns:repeat(5,minmax(0,1fr));gap:13px}
+    .service{min-height:132px;padding:17px 16px 16px;border-radius:16px;background:#fff!important;color:var(--navy);border:1px solid #e0eaf5;box-shadow:0 5px 17px rgba(1,42,98,.055)}
+    .service:nth-child(odd),.service:nth-child(even){background:#fff!important}
+    .service:hover{border-color:#b7d7f7;transform:translateY(-3px);box-shadow:0 10px 24px rgba(1,42,98,.1)}
+    .service-icon{width:48px;height:48px;border-radius:15px;margin:0 auto 10px;background:var(--blue-soft);color:var(--blue);font-size:20px}
+    .service:nth-child(even) .service-icon{background:var(--teal-soft);color:var(--teal-dark)}
+    .service-icon svg,.shortcut-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .service h3{text-align:center;font-size:14px;margin:0 0 3px}
+    .service p{text-align:center;font-size:11px;color:var(--muted);line-height:1.35}
+    .service .arrow{width:23px;height:23px;right:8px;bottom:8px;background:#f0f6fd;color:var(--blue);font-size:14px}
+    .catalogue{background:transparent}
+    .offer-tabs{justify-content:flex-start;gap:8px;margin-bottom:20px;overflow-x:auto;padding:3px 2px 7px;flex-wrap:nowrap;scrollbar-width:thin}
+    .offer-tab{white-space:nowrap;border-color:#dce7f3;border-radius:12px;padding:10px 15px;box-shadow:0 2px 5px rgba(1,42,98,.025)}
+    .offer-tab[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);box-shadow:0 5px 13px rgba(1,42,98,.16)}
+    .catalogue-intro{text-align:left;margin:0 0 17px;font-size:13px}
+    .offer-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .package{position:relative;overflow:hidden;border:1px solid #e0e8f1;border-radius:17px;padding:0 18px 17px;gap:9px;box-shadow:0 5px 16px rgba(1,42,98,.055);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+    .package:before{content:"";height:8px;display:block;margin:0 -18px 3px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+    .package:hover{transform:translateY(-4px);border-color:#bfd8f1;box-shadow:0 14px 28px rgba(1,42,98,.11)}
+    .package-category{display:inline-flex;align-self:flex-start;background:var(--blue-soft);color:var(--navy);border-radius:999px;padding:5px 9px;font-size:10px;letter-spacing:.45px}
+    .package h3{font-size:clamp(21px,2vw,27px);letter-spacing:-.5px;line-height:1.15}
+    .package-price{font-size:clamp(27px,2.7vw,35px);color:var(--navy);letter-spacing:-.8px}
+    .package-validity{font-size:12px;min-height:32px;line-height:1.45}
+    .package .buy-guide{margin-top:2px;display:grid;grid-template-columns:1fr;gap:8px}
+    .package .btn{min-height:43px;border-radius:11px;font-size:13px;width:100%;padding:0 12px}
+    .package .btn-primary{background:linear-gradient(105deg,var(--blue),#0755c8);color:#fff;box-shadow:0 5px 13px rgba(5,105,217,.18)}
+    .package .btn-primary:before{content:"🛒";font-size:14px}
+    .btn-copy-amount{background:#eef8f6;color:#006d5b;border-color:#c9eee5}
+    .offer-note-box{font-size:13px;line-height:1.55;border-radius:14px}
+    .how{background:#edf5fd}
+    .step{border-radius:17px;box-shadow:0 5px 18px rgba(1,42,98,.05)}
+    .purchase-dialog{border-radius:22px}
+    .mobile-shortcuts{display:none}
+    .whatsapp{box-shadow:0 7px 20px rgba(0,0,0,.15)}
+    @media(max-width:900px){
+      .nav{min-height:66px}
+      .nav-links{top:66px}
+      .hero-inner{grid-template-columns:1fr .9fr;min-height:0;padding:28px 0;gap:18px}
+      .hero h1{font-size:clamp(30px,5vw,43px)}
+      .hero p{font-size:14px;margin-bottom:18px}
+      .offer-card{padding:20px}
+      .offer-card h2{font-size:44px}.offer-price{font-size:42px}
+      .services{grid-template-columns:repeat(5,minmax(100px,1fr));gap:9px}
+      .service{min-height:120px;padding:13px 8px}
+      .service p{display:none}
+      .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+      .package{padding-left:15px;padding-right:15px}
+      .package:before{margin-left:-15px;margin-right:-15px}
+    }
+    @media(max-width:620px){
+      body{padding-bottom:74px}
+      .container{width:min(94%,var(--max))}
+      .logo{width:154px}
+      .hero-inner{grid-template-columns:1fr;padding:26px 0 34px;gap:18px}
+      .hero h1{font-size:38px;max-width:430px}
+      .hero p{font-size:14px;line-height:1.55;max-width:470px}
+      .hero-trust{gap:8px 13px;margin-top:16px;font-size:11px}
+      .hero-actions .btn{min-height:43px;padding:0 14px;font-size:13px}
+      .offer-card{max-width:none;padding:19px;border-radius:18px;display:grid;grid-template-columns:1fr auto;column-gap:12px;align-items:center}
+      .offer-label{grid-column:1/-1;justify-self:start;margin-bottom:10px;font-size:10px}
+      .offer-card h2{font-size:39px;margin:0}
+      .offer-card h2 small{font-size:13px;margin-top:5px}
+      .offer-price{font-size:36px;letter-spacing:-1px;grid-column:2;grid-row:2}
+      .offer-deadline{grid-column:1/-1;justify-self:start;margin:10px 0 7px;font-size:11px}
+      .offer-note{grid-column:1/-1;font-size:12px}
+      .mini-phone{display:none}
+      .till-wrap{margin-top:-18px}
+      .till-card{grid-template-columns:1fr auto;padding:14px 15px;gap:8px;border-width:2px;border-radius:15px}
+      .till-label{font-size:10px}.till-number{font-size:29px}.till-copy{font-size:11px;grid-column:1/-1}
+      .copy-btn{font-size:12px;padding:10px 12px;border-radius:10px;grid-column:2;grid-row:1/3}
+      .section{padding:37px 0}
+      .section-head{text-align:left;margin-bottom:20px}
+      .section-head h2{font-size:27px}
+      .section-head p{font-size:13px;line-height:1.5}
+      .services{display:flex;overflow-x:auto;gap:11px;padding:2px 1px 10px;scroll-snap-type:x mandatory;scrollbar-width:none}
+      .services::-webkit-scrollbar{display:none}
+      .service{flex:0 0 94px;min-height:98px;padding:11px 7px;border-radius:14px;scroll-snap-align:start}
+      .service-icon{width:43px;height:43px;margin-bottom:7px;border-radius:13px}
+      .service-icon svg{width:21px;height:21px}
+      .service h3{font-size:11px;line-height:1.25}
+      .service .arrow{display:none}
+      .offer-tabs{margin:0 -3% 17px;padding:2px 3% 8px}
+      .offer-tab{padding:9px 12px;font-size:12px;border-radius:10px}
+      .catalogue-intro{font-size:12px;line-height:1.45}
+      .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+      .package{padding:0 11px 12px;border-radius:14px;gap:8px;min-width:0}
+      .package:before{height:6px;margin-left:-11px;margin-right:-11px;margin-bottom:1px}
+      .package-category{font-size:8px;letter-spacing:.25px;padding:4px 6px;max-width:100%;white-space:normal}
+      .package h3{font-size:20px;overflow-wrap:anywhere}
+      .package-price{font-size:25px;letter-spacing:-.6px}
+      .package-validity{font-size:11px;min-height:36px;line-height:1.35}
+      .package .buy-guide{gap:6px}
+      .package .btn{min-height:38px;font-size:11px;padding:0 6px;border-radius:9px;gap:5px}
+      .package .btn-primary:before{font-size:12px}
+      .btn-copy-amount{font-size:10px!important}
+      .offer-note-box{padding:13px;font-size:11px;margin-top:16px}
+      .steps{grid-template-columns:1fr;gap:12px}
+      .step{padding:20px}
+      .benefit-grid{gap:10px}
+      .benefit{padding:18px 12px}
+      .promo{padding:23px;border-radius:18px}
+      .footer-grid{grid-template-columns:1fr;gap:25px}
+      .footer-logo{width:190px}
+      .copyright{font-size:11px}
+      .whatsapp{right:12px;bottom:84px;padding:10px 13px;font-size:11px}
+      .scroll-top{bottom:133px}
+      .toast{bottom:85px;max-width:90%;text-align:center}
+      .mobile-shortcuts{position:fixed;z-index:1100;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:8px 5px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid #e0e9f3;box-shadow:0 -5px 20px rgba(1,42,98,.08);backdrop-filter:blur(12px)}
+      .mobile-shortcuts a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;color:#34516f;font-size:9px;font-weight:800;white-space:nowrap}
+      .shortcut-icon{width:33px;height:33px;border-radius:11px;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue)}
+      .mobile-shortcuts a:nth-child(even) .shortcut-icon{background:var(--teal-soft);color:var(--teal-dark)}
+      .shortcut-icon svg{width:17px;height:17px}
+    }
+    @media(max-width:360px){
+      .hero h1{font-size:34px}
+      .package{padding-left:9px;padding-right:9px}
+      .package:before{margin-left:-9px;margin-right:-9px}
+      .package h3{font-size:18px}.package-price{font-size:23px}
+      .package .btn{font-size:10px}
+      .mobile-shortcuts a{font-size:8px}
+    }
+
   </style>
 </head>
 
@@ -618,6 +761,14 @@
       </nav>
     </div>
   </header>
+
+  <nav class="mobile-shortcuts" aria-label="Quick offer categories">
+    <a href="#data-offers" data-category-link="data"><span class="shortcut-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><span>Data</span></a>
+    <a href="#minutes-offers" data-category-link="minutes"><span class="shortcut-icon"><svg viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 3a15 15 0 0 1-6-6l3-2-2-5Z"/></svg></span><span>Minutes</span></a>
+    <a href="#sms-offers" data-category-link="sms"><span class="shortcut-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>SMS</span></a>
+    <a href="#monthly-offers" data-category-link="monthly"><span class="shortcut-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 2v4m8-4v4M4 9h16"/></svg></span><span>Monthly</span></a>
+    <a href="#how-to-buy"><span class="shortcut-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg></span><span>How to Buy</span></a>
+  </nav>
 
   <main id="home">
     <!-- HERO / FEATURED OFFER -->
@@ -679,31 +830,31 @@
 
         <div class="services">
           <a class="service" href="#data-offers" data-category-link="data">
-            <div class="service-icon">◉</div>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v4m8-4v4"/></svg></div>
             <h3>Data Bundles</h3>
             <p>Browse affordable data offers.</p>
             <span class="arrow">→</span>
           </a>
           <a class="service" href="#minutes-offers" data-category-link="minutes">
-            <div class="service-icon">☎</div>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 3a15 15 0 0 1-6-6l3-2-2-5Z"/></svg></div>
             <h3>Minutes</h3>
             <p>Talk more and spend less.</p>
             <span class="arrow">→</span>
           </a>
           <a class="service" href="#sms-offers" data-category-link="sms">
-            <div class="service-icon">✉</div>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></div>
             <h3>SMS</h3>
             <p>Stay connected with affordable SMS.</p>
             <span class="arrow">→</span>
           </a>
           <a class="service" href="#tunukiwa-offers" data-category-link="tunukiwa">
-            <div class="service-icon">★</div>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></svg></div>
             <h3>Tunukiwa</h3>
             <p>Get more with Tunukiwa offers.</p>
             <span class="arrow">→</span>
           </a>
           <a class="service" href="#monthly-offers" data-category-link="monthly">
-            <div class="service-icon">▣</div>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 2v4m8-4v4M4 9h16"/></svg></div>
             <h3>Monthly</h3>
             <p>Best-value monthly bundles.</p>
             <span class="arrow">→</span>
