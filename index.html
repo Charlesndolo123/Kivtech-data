@@ -394,6 +394,26 @@
     }
     .promo-badge strong{display:block;font-size:32px;color:#55f0d1}
 
+
+    /* OFFER CATALOGUE */
+    .catalogue{background:#fff}
+    .offer-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 auto 28px}
+    .offer-tab{border:1px solid #d5e3f1;background:#fff;color:var(--navy);border-radius:999px;padding:10px 16px;font-weight:850;cursor:pointer}
+    .offer-tab[aria-pressed="true"],.offer-tab:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .offer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .package{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;box-shadow:0 10px 28px rgba(1,42,98,.06);display:flex;flex-direction:column;gap:10px}
+    .package-category{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--teal-dark)}
+    .package h3{font-size:22px;color:var(--navy)}
+    .package-price{font-size:32px;line-height:1.1;font-weight:950;color:var(--blue)}
+    .package-validity{color:var(--muted);font-size:14px;min-height:42px}
+    .package .buy-guide{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+    .package .btn{min-height:42px;padding:0 13px;font-size:13px}
+    .btn-copy-amount{background:var(--blue-soft);color:var(--navy);border:1px solid #cfe4fa}
+    .offer-note-box{margin-top:24px;padding:18px 20px;border-radius:16px;background:#fff8e8;border:1px solid #f3dca0;color:#6c4b00}
+    .catalogue-intro{text-align:center;color:var(--muted);margin:-22px auto 24px;max-width:760px}
+    @media(max-width:900px){.offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.offer-grid{grid-template-columns:1fr}.offer-tab{padding:9px 12px;font-size:13px}.package{padding:19px}}
+
     /* FAQ */
     .faq{max-width:850px;margin:auto}
     details{
@@ -549,14 +569,14 @@
 
       <nav class="nav-links" id="navLinks">
         <a href="#home" class="active">Home</a>
-        <a href="#services">Data Bundles</a>
-        <a href="#services">Tunukiwa</a>
-        <a href="#services">Monthly</a>
-        <a href="#services">Minutes</a>
-        <a href="#services">SMS</a>
+        <a href="#data-offers" data-category-link="data">Data Bundles</a>
+        <a href="#tunukiwa-offers" data-category-link="tunukiwa">Tunukiwa</a>
+        <a href="#monthly-offers" data-category-link="monthly">Monthly</a>
+        <a href="#minutes-offers" data-category-link="minutes">Minutes</a>
+        <a href="#sms-offers" data-category-link="sms">SMS</a>
         <a href="#how-to-buy">How to Buy</a>
         <a href="#faqs">FAQs</a>
-        <a href="#footer">Blogs</a>
+        <a href="blogs.html">Blogs</a>
       </nav>
     </div>
   </header>
@@ -591,8 +611,7 @@
           <div class="offer-price">KSh 55</div>
           <div class="offer-deadline">UNTIL MIDNIGHT</div>
           <p class="offer-note">
-            Replace this featured offer whenever you have a new promotion.
-            The rest of the homepage can stay exactly the same.
+            Featured promotion shown on your offer poster. Valid until midnight.
           </p>
           <div class="mini-phone">📱 ⚡ 📶</div>
         </div>
@@ -621,36 +640,60 @@
         </div>
 
         <div class="services">
-          <a class="service" href="#">
+          <a class="service" href="#data-offers" data-category-link="data">
             <div class="service-icon">◉</div>
             <h3>Data Bundles</h3>
             <p>Browse affordable data offers.</p>
             <span class="arrow">→</span>
           </a>
-          <a class="service" href="#">
+          <a class="service" href="#minutes-offers" data-category-link="minutes">
             <div class="service-icon">☎</div>
             <h3>Minutes</h3>
             <p>Talk more and spend less.</p>
             <span class="arrow">→</span>
           </a>
-          <a class="service" href="#">
+          <a class="service" href="#sms-offers" data-category-link="sms">
             <div class="service-icon">✉</div>
             <h3>SMS</h3>
             <p>Stay connected with affordable SMS.</p>
             <span class="arrow">→</span>
           </a>
-          <a class="service" href="#">
+          <a class="service" href="#tunukiwa-offers" data-category-link="tunukiwa">
             <div class="service-icon">★</div>
             <h3>Tunukiwa</h3>
             <p>Get more with Tunukiwa offers.</p>
             <span class="arrow">→</span>
           </a>
-          <a class="service" href="#">
+          <a class="service" href="#monthly-offers" data-category-link="monthly">
             <div class="service-icon">▣</div>
             <h3>Monthly</h3>
             <p>Best-value monthly bundles.</p>
             <span class="arrow">→</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER CATALOGUE -->
+    <section class="section catalogue" id="offer-catalogue">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Choose your package</div>
+          <h2>Available Safaricom Offers</h2>
+          <p>Browse the packages below, then pay manually through M-PESA Buy Goods and Services. Payments are not made on this website.</p>
+        </div>
+        <div class="offer-tabs" role="group" aria-label="Filter offers by category">
+          <button class="offer-tab" type="button" data-filter="all" aria-pressed="true">All Offers</button>
+          <button class="offer-tab" type="button" data-filter="data" aria-pressed="false">Data Bundles</button>
+          <button class="offer-tab" type="button" data-filter="minutes" aria-pressed="false">Minutes</button>
+          <button class="offer-tab" type="button" data-filter="sms" aria-pressed="false">SMS</button>
+          <button class="offer-tab" type="button" data-filter="tunukiwa" aria-pressed="false">Tunukiwa</button>
+          <button class="offer-tab" type="button" data-filter="monthly" aria-pressed="false">Monthly</button>
+        </div>
+        <p class="catalogue-intro" id="catalogueIntro">Select a category to view its offers. Choose “How to Buy” for the M-PESA instructions.</p>
+        <div class="offer-grid" id="offerGrid" aria-live="polite"></div>
+        <div class="offer-note-box">
+          <strong>Time-sensitive offer note:</strong> The poster states that the KSh 22 Data offer and KSh 23 Tunukiwa offer are available from midnight to 4 PM. It also notes that payments of KSh 22 or KSh 23 between 4 PM and midnight give 250 MB. Please verify these conditions with your fulfilment system before relying on them.
         </div>
       </div>
     </section>
@@ -661,27 +704,17 @@
         <div class="section-head">
           <div class="kicker">Simple & easy</div>
           <h2>How to Buy</h2>
-          <p>You don't buy directly from the website. Follow these three simple steps.</p>
+          <p>This website is a guide only. Complete your payment manually in M-PESA; do not pay on this website.</p>
         </div>
 
         <div class="steps">
-          <article class="step">
-            <div class="step-num">1</div>
-            <h3>Choose Your Offer</h3>
-            <p>Select the bundle you want — Data, Minutes, SMS, Tunukiwa or Monthly.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-num">2</div>
-            <h3>Send Payment</h3>
-            <p>Send the required amount to our automated Till Number <strong>5797885</strong>.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-num">3</div>
-            <h3>Receive Your Bundle</h3>
-            <p>Your selected offer is delivered automatically after successful payment.</p>
-          </article>
+          <article class="step"><div class="step-num">1</div><h3>Open M-PESA</h3><p>Open the M-PESA menu on your phone.</p></article>
+          <article class="step"><div class="step-num">2</div><h3>Select Lipa na M-PESA</h3><p>Choose the Lipa na M-PESA option.</p></article>
+          <article class="step"><div class="step-num">3</div><h3>Choose Buy Goods and Services</h3><p>Select Buy Goods and Services.</p></article>
+          <article class="step"><div class="step-num">4</div><h3>Enter the Till Number</h3><p>Enter <strong>5797885</strong>. Use the Copy Till button above if needed.</p></article>
+          <article class="step"><div class="step-num">5</div><h3>Enter the Exact Amount</h3><p>Enter the price of the offer you selected. You can copy the amount from its offer card.</p></article>
+          <article class="step"><div class="step-num">6</div><h3>Confirm Payment</h3><p>Check the details, enter your M-PESA PIN and confirm the transaction.</p></article>
+          <article class="step"><div class="step-num">7</div><h3>Receive Your Bundle</h3><p>Your bundle is fulfilled by the existing automated service after successful payment.</p></article>
         </div>
       </div>
     </section>
@@ -727,7 +760,7 @@
           <div>
             <div class="kicker" style="color:#55f0d1">Featured promotion</div>
             <h2>More data.<br>More possibilities.</h2>
-            <p>Keep this section for your latest campaign, seasonal promotion or special offer.</p>
+            <p>Browse the available packages, then pay manually through M-PESA Buy Goods and Services.</p>
           </div>
           <div class="promo-badge">
             <span>Today's featured deal</span>
@@ -785,14 +818,14 @@
           <h3>Quick Links</h3>
           <div class="footer-links">
             <a href="#home">Home</a>
-            <a href="#services">Data Bundles</a>
-            <a href="#services">Tunukiwa</a>
-            <a href="#services">Monthly</a>
-            <a href="#services">Minutes</a>
-            <a href="#services">SMS</a>
+            <a href="#data-offers" data-category-link="data">Data Bundles</a>
+            <a href="#tunukiwa-offers" data-category-link="tunukiwa">Tunukiwa</a>
+            <a href="#monthly-offers" data-category-link="monthly">Monthly</a>
+            <a href="#minutes-offers" data-category-link="minutes">Minutes</a>
+            <a href="#sms-offers" data-category-link="sms">SMS</a>
             <a href="#how-to-buy">How to Buy</a>
             <a href="#faqs">FAQs</a>
-            <a href="#">Blogs</a>
+            <a href="blogs.html">Blogs</a>
           </div>
         </div>
 
@@ -850,6 +883,67 @@
         setTimeout(() => toast.classList.remove("show"), 1800);
       } catch {
         alert("Our Till Number is 5797885");
+      }
+    });
+
+
+    // Offer catalogue: values transcribed from the KivTech offer poster.
+    const offers = [
+      {category:"data", title:"1 GB", price:22, validity:"1 hour; available midnight to 4 PM"},
+      {category:"data", title:"250 MB", price:20, validity:"24 hours"},
+      {category:"data", title:"400 MB", price:49, validity:"7 days"},
+      {category:"data", title:"750 MB", price:55, validity:"24 hours"},
+      {category:"data", title:"1.5 GB", price:99, validity:"24 hours"},
+      {category:"minutes", title:"45 minutes", price:21, validity:"3 hours"},
+      {category:"minutes", title:"60 minutes", price:51, validity:"Until midnight"},
+      {category:"minutes", title:"250 minutes", price:200, validity:"7 days"},
+      {category:"minutes", title:"300 minutes", price:500, validity:"30 days"},
+      {category:"minutes", title:"1,250 minutes", price:1000, validity:"30 days"},
+      {category:"sms", title:"20 SMS", price:5, validity:"1 day"},
+      {category:"sms", title:"200 SMS", price:10, validity:"1 day"},
+      {category:"sms", title:"1,000 SMS", price:30, validity:"7 days"},
+      {category:"sms", title:"1,500 SMS", price:101, validity:"7 days"},
+      {category:"tunukiwa", title:"1 GB", price:23, validity:"1 hour; available midnight to 4 PM"},
+      {category:"tunukiwa", title:"750 MB", price:55, validity:"24 hours"},
+      {category:"tunukiwa", title:"2 GB", price:105, validity:"24 hours"},
+      {category:"monthly", title:"2.5 GB", price:250, validity:"30 days"},
+      {category:"monthly", title:"7 GB", price:495, validity:"30 days"},
+      {category:"monthly", title:"21 GB", price:990, validity:"30 days"},
+      {category:"monthly", title:"8 GB + 400 minutes", price:999, validity:"30 days"}
+    ];
+    const categoryNames = {data:"Data Bundles",minutes:"Minutes",sms:"SMS",tunukiwa:"Tunukiwa",monthly:"Monthly Deals"};
+    const offerGrid = document.getElementById("offerGrid");
+    const catalogueIntro = document.getElementById("catalogueIntro");
+    function renderOffers(filter="all"){
+      const visible = filter === "all" ? offers : offers.filter(offer => offer.category === filter);
+      offerGrid.innerHTML = visible.map(offer => `
+        <article class="package" ${visible.findIndex(item => item.category === offer.category) === visible.indexOf(offer) ? `id="${offer.category}-offers"` : ""}>
+          <span class="package-category">${categoryNames[offer.category]}</span>
+          <h3>${offer.title}</h3>
+          <div class="package-price">KSh ${offer.price.toLocaleString("en-KE")}</div>
+          <p class="package-validity">Validity: ${offer.validity}</p>
+          <div class="buy-guide">
+            <a class="btn btn-primary" href="#how-to-buy">How to Buy</a>
+            <button class="btn btn-copy-amount" type="button" data-copy-amount="${offer.price}">Copy Amount</button>
+          </div>
+        </article>`).join("");
+      catalogueIntro.textContent = filter === "all" ? "Browse all published packages, then follow the M-PESA steps below." : `Showing ${categoryNames[filter]} offers. Select an offer and pay the exact amount through M-PESA.`;
+      document.querySelectorAll(".offer-tab").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)));
+    }
+    renderOffers();
+    document.querySelectorAll(".offer-tab").forEach(button => button.addEventListener("click", () => renderOffers(button.dataset.filter)));
+    document.querySelectorAll("[data-category-link]").forEach(link => link.addEventListener("click", () => renderOffers(link.dataset.categoryLink)));
+    offerGrid.addEventListener("click", async event => {
+      const button = event.target.closest("[data-copy-amount]");
+      if (!button) return;
+      const amount = button.dataset.copyAmount;
+      try {
+        await navigator.clipboard.writeText(amount);
+        toast.textContent = `KSh ${Number(amount).toLocaleString("en-KE")} copied!`;
+        toast.classList.add("show");
+        setTimeout(() => { toast.classList.remove("show"); toast.textContent = "Till number copied!"; }, 1800);
+      } catch {
+        alert(`Offer amount: KSh ${amount}`);
       }
     });
 
