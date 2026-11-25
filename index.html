@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kivtech Data Solutions — affordable data bundles, minutes and SMS with 24/7 automated delivery." />
+  <meta name="description" content="KivTech Data Solutions — affordable data bundles, minutes and SMS with manual M-PESA payment verification and bundle processing." />
   <meta name="theme-color" content="#012a62" />
-  <title>Kivtech Data Solutions | Affordable Data Bundles, Minutes & SMS</title>
+  <title>KivTech Data Solutions | Affordable Data Bundles, Minutes & SMS</title>
   <link rel="canonical" href="https://www.kivtechdatasolutions.co.ke/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Kivtech Data Solutions | Fast, Reliable, Instant" />
-  <meta property="og:description" content="Explore data bundles, minutes and SMS packages from Kivtech Data Solutions. Pay through our automated M-PESA Till and follow the purchase instructions." />
+  <meta property="og:description" content="Explore data bundles, minutes and SMS packages from Kivtech Data Solutions. Pay through M-PESA and share your transaction confirmation for verification." />
   <meta property="og:url" content="https://www.kivtechdatasolutions.co.ke/" />
   <meta property="og:image" content="https://www.kivtechdatasolutions.co.ke/kivtech-logo-transparent.png" />
   <meta name="twitter:card" content="summary" />
@@ -17,27 +17,27 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Kivtech Data Solutions",
+    "name": "KivTech Data Solutions",
     "url": "https://www.kivtechdatasolutions.co.ke/",
     "logo": "https://www.kivtechdatasolutions.co.ke/kivtech-logo-transparent.png",
     "telephone": "+254715024923",
-    "description": "A Kenyan digital services business offering data bundles, voice minutes and SMS packages with automated M-PESA payment instructions."
+    "description": "A Kenyan digital services business offering data bundles, voice minutes and SMS packages with manual M-PESA payment verification."
   }
   </script>
 
   <style>
     :root{
       --navy:#012a62;
-      --blue:#0569d9;
-      --blue-soft:#eaf4ff;
-      --teal:#00b799;
-      --teal-dark:#008f78;
-      --teal-soft:#e8fbf6;
+      --blue:#087a68;
+      --blue-soft:#e8f7f2;
+      --teal:#12a879;
+      --teal-dark:#087b5b;
+      --teal-soft:#e7f8ef;
       --white:#ffffff;
       --ink:#102a43;
       --muted:#60758a;
-      --line:#e5edf5;
-      --bg:#f7fbff;
+      --line:#e4ece8;
+      --bg:#f5f8f7;
       --shadow:0 16px 45px rgba(1,42,98,.12);
       --radius:22px;
       --max:1180px;
@@ -757,6 +757,110 @@
       .mobile-shortcuts a{font-size:8px}
     }
 
+
+    /* ===== KivTech premium refresh ===== */
+    :root{
+      --navy:#062b3f;
+      --blue:#087a68;
+      --blue-soft:#eaf5f1;
+      --teal:#13a879;
+      --teal-dark:#087b5b;
+      --teal-soft:#e7f8ef;
+      --ink:#142b32;
+      --muted:#60746f;
+      --line:#e2ebe6;
+      --bg:#f5f8f6;
+      --shadow:0 18px 48px rgba(6,43,63,.10);
+      --radius:20px;
+    }
+    body{background:#f6f8f7;color:#142b32}
+    .header{background:rgba(255,255,255,.97);box-shadow:0 5px 22px rgba(6,43,63,.045)}
+    .nav-links{gap:clamp(12px,1.6vw,22px);font-size:13px}
+    .nav-links a:hover,.nav-links a.active{color:#0a9a70}
+    .nav-links a.active:after{background:#13a879}
+    .menu-btn{background:#eaf5f1;color:#062b3f}
+    .hero{
+      background:
+        radial-gradient(ellipse at 82% 20%,rgba(19,168,121,.35),transparent 31%),
+        radial-gradient(ellipse at 8% 95%,rgba(11,113,96,.34),transparent 30%),
+        linear-gradient(118deg,#05283b 0%,#073e4b 55%,#087b61 100%);
+    }
+    .hero-inner{min-height:500px;padding:65px 0}
+    .hero h1{letter-spacing:-2.6px}
+    .hero h1 span{color:#73edbd}
+    .hero .btn-primary,.buy-guide .btn-primary,.modal .btn-primary{
+      background:#13a879;color:#062b3f;box-shadow:0 10px 24px rgba(19,168,121,.2)
+    }
+    .hero .btn-primary:hover,.buy-guide .btn-primary:hover,.modal .btn-primary:hover{background:#36c995}
+    .hero .btn-outline{border-color:rgba(255,255,255,.48)}
+    .offer-card{border:1px solid rgba(255,255,255,.7);box-shadow:0 25px 70px rgba(0,0,0,.22)}
+    .offer-price{color:#087b5b}
+    .offer-deadline{background:#062b3f}
+    .till-card{background:linear-gradient(110deg,#062b3f,#075344);border-color:#fff}
+    .copy-btn{background:#13a879;color:#062b3f}
+    .section-head h2,.section-head h2 span{color:#062b3f}
+    .service,.package,.step,.faq details{border-color:#e2ebe6;box-shadow:0 8px 25px rgba(6,43,63,.045)}
+    .service:hover,.package:hover{border-color:#a7dbc5;box-shadow:0 15px 35px rgba(6,43,63,.09)}
+    .service-icon,.step-num{background:#e7f8ef;color:#087b5b}
+    .package-category{background:#e7f8ef;color:#087b5b}
+    .package-price{color:#087b5b}
+    .buy-guide .btn-primary{border:0}
+    .btn-copy-amount{background:#edf3f0;color:#23433b}
+    .offer-tab[aria-pressed="true"]{background:#062b3f;border-color:#062b3f;color:white}
+    .benefits{background:linear-gradient(120deg,#062b3f,#075344)}
+    .promo{background:linear-gradient(115deg,#062b3f,#087b61)}
+    .promo-badge{border-color:rgba(255,255,255,.35)}
+    footer{background:#041f2d}
+    .whatsapp{box-shadow:0 10px 30px rgba(0,0,0,.22)}
+    .scroll-top{background:#13a879;color:#062b3f}
+    .catalogue-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 15px;flex-wrap:wrap}
+    .offer-search{display:flex;align-items:center;gap:10px;min-height:48px;width:min(100%,440px);padding:0 15px;background:#fff;border:1px solid #dce8e1;border-radius:14px;color:#087b5b;box-shadow:0 5px 18px rgba(6,43,63,.035)}
+    .offer-search span{font-size:25px;line-height:1}
+    .offer-search input{border:0;outline:0;background:transparent;width:100%;font:inherit;color:#142b32}
+    .offer-search:focus-within{border-color:#13a879;box-shadow:0 0 0 3px rgba(19,168,121,.12)}
+    .catalogue-count{font-size:13px;font-weight:750;color:#60746f}
+    .activity-toast{
+      position:fixed;left:22px;bottom:22px;z-index:900;display:flex;align-items:flex-start;gap:12px;
+      width:min(355px,calc(100vw - 32px));padding:15px 42px 15px 15px;background:#fff;
+      border:1px solid #dce9e2;border-radius:17px;box-shadow:0 18px 48px rgba(4,31,45,.18);
+      animation:activityIn .38s cubic-bezier(.2,.8,.2,1);color:#142b32
+    }
+    .activity-toast[hidden]{display:none}
+    .activity-icon{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#e7f8ef;color:#087b5b;display:grid;place-items:center;font-size:21px}
+    .activity-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .activity-copy small{font-size:9px;letter-spacing:.12em;font-weight:900;color:#087b5b}
+    .activity-copy strong{font-size:14px;color:#062b3f}
+    .activity-copy span{font-size:12px;color:#60746f}
+    .activity-copy button{align-self:flex-start;border:0;background:none;padding:5px 0 0;color:#087b5b;font-size:12px;font-weight:850;cursor:pointer}
+    .activity-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:#84958e;font-size:22px;cursor:pointer}
+    @keyframes activityIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:650px){
+      .hero-inner{min-height:0;padding:48px 0 58px}
+      .hero h1{font-size:clamp(40px,12vw,58px)}
+      .offer-card{padding:24px;border-radius:23px}
+      .catalogue-tools{align-items:stretch}
+      .offer-search{width:100%}
+      .catalogue-count{padding-left:2px}
+      .activity-toast{left:12px;bottom:82px;width:min(355px,calc(100vw - 24px))}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+
+
+    .confirmation-form{margin-top:18px;padding:18px;background:#f5f8f6;border:1px solid #e2ebe6;border-radius:16px}
+    .confirmation-form h3{font-size:17px;color:#062b3f;margin:0 0 5px}
+    .confirmation-form p{font-size:13px;color:#60746f;margin:0 0 12px}
+    .confirmation-form label{display:block;font-size:12px;font-weight:800;color:#29443d;margin:11px 0 5px}
+    .confirmation-form input{display:block;width:100%;min-height:45px;padding:10px 12px;border:1px solid #d5e2da;border-radius:10px;background:#fff;color:#142b32;font:inherit}
+    .confirmation-form input:focus{outline:3px solid rgba(19,168,121,.16);border-color:#13a879}
+    .confirmation-form .confirmation-hint{font-size:11px;margin:9px 0 0}
+
+
+    .hero-dots{display:flex;gap:8px;margin-top:25px}
+    .hero-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.42);cursor:pointer;transition:all .2s}
+    .hero-dot.active{width:27px;border-radius:20px;background:#73edbd}
+
   </style>
 </head>
 
@@ -799,11 +903,11 @@
     <section class="hero">
       <div class="container hero-inner">
         <div>
-          <div class="eyebrow">● 24/7 AUTOMATED SERVICE</div>
+          <div class="eyebrow">● SIMPLE & RELIABLE M-PESA PROCESS</div>
           <h1>Fast data.<br><span>Simple.</span> Reliable.</h1>
           <p>
             Get affordable data bundles, minutes and SMS offers.
-            Choose your offer, send payment to our automated Till and get your bundle instantly.
+            Choose your offer, pay through our M-PESA Till, then share your confirmation for verification and processing.
           </p>
 
           <div class="hero-actions">
@@ -812,9 +916,14 @@
           </div>
 
           <div class="hero-trust">
-            <span>✓ 24/7 Automated</span>
-            <span>✓ Instant Delivery</span>
-            <span>✓ Affordable Offers</span>
+            <span>✓ Simple payment process</span>
+            <span>✓ Verified processing</span>
+            <span>✓ Affordable offers</span>
+          </div>
+          <div class="hero-dots" role="group" aria-label="Promotional banner slides">
+            <button type="button" class="hero-dot active" data-hero-slide="0" aria-label="Show promotion 1" aria-pressed="true"></button>
+            <button type="button" class="hero-dot" data-hero-slide="1" aria-label="Show promotion 2" aria-pressed="false"></button>
+            <button type="button" class="hero-dot" data-hero-slide="2" aria-label="Show promotion 3" aria-pressed="false"></button>
           </div>
         </div>
 
@@ -835,11 +944,11 @@
     <div class="container till-wrap">
       <div class="till-card">
         <div>
-          <div class="till-label">OUR AUTOMATED TILL NUMBER</div>
+          <div class="till-label">OUR M-PESA BUY GOODS TILL</div>
           <div class="till-number">5797885</div>
         </div>
         <button class="copy-btn" id="copyTill">▣ Copy Till</button>
-        <div class="till-copy">Send your payment and get your bundle instantly.</div>
+        <div class="till-copy">Pay via M-PESA, then share your confirmation for verification.</div>
       </div>
     </div>
 
@@ -895,6 +1004,13 @@
           <h2>Available Safaricom Offers</h2>
           <p>Browse the packages below, then pay manually through M-PESA Buy Goods and Services. Payments are not made on this website.</p>
         </div>
+        <div class="catalogue-tools">
+          <label class="offer-search" for="offerSearch">
+            <span aria-hidden="true">⌕</span>
+            <input id="offerSearch" type="search" placeholder="Search bundles, minutes or SMS..." autocomplete="off">
+          </label>
+          <span class="catalogue-count" id="catalogueCount" aria-live="polite">21 available offers</span>
+        </div>
         <div class="offer-tabs" role="group" aria-label="Filter offers by category">
           <button class="offer-tab" type="button" data-filter="all" aria-pressed="true">All Offers</button>
           <button class="offer-tab" type="button" data-filter="data" aria-pressed="false">Data Bundles</button>
@@ -927,7 +1043,7 @@
           <article class="step"><div class="step-num">4</div><h3>Enter the Till Number</h3><p>Enter <strong>5797885</strong>. Use the Copy Till button above if needed.</p></article>
           <article class="step"><div class="step-num">5</div><h3>Enter the Exact Amount</h3><p>Enter the price of the offer you selected. You can copy the amount from its offer card.</p></article>
           <article class="step"><div class="step-num">6</div><h3>Confirm Payment</h3><p>Check the details, enter your M-PESA PIN and confirm the transaction.</p></article>
-          <article class="step"><div class="step-num">7</div><h3>Receive Your Bundle</h3><p>Your bundle is fulfilled by the existing automated service after successful payment.</p></article>
+          <article class="step"><div class="step-num">7</div><h3>Receive Your Bundle</h3><p>KivTech verifies your payment and manually processes your bundle.</p></article>
         </div>
       </div>
     </section>
@@ -938,19 +1054,19 @@
         <div class="section-head">
           <div class="kicker" style="color:#55f0d1">Why choose us</div>
           <h2 style="color:#fff">Kivtech Data Solutions</h2>
-          <p style="color:#bcd5ef">Built around convenience, automation and affordable connectivity.</p>
+          <p style="color:#bcd5ef">Built around convenience, clear payment instructions and affordable connectivity.</p>
         </div>
 
         <div class="benefit-grid">
           <div class="benefit">
             <div class="benefit-icon">◷</div>
-            <h3>24/7 Automated</h3>
-            <p>Service designed to run around the clock.</p>
+            <h3>Simple payment process</h3>
+            <p>Clear M-PESA instructions for every offer.</p>
           </div>
           <div class="benefit">
             <div class="benefit-icon">⚡</div>
-            <h3>Instant Delivery</h3>
-            <p>Automated delivery after successful payment.</p>
+            <h3>Verified processing</h3>
+            <p>Your bundle is processed after payment verification.</p>
           </div>
           <div class="benefit">
             <div class="benefit-icon">✓</div>
@@ -995,15 +1111,15 @@
         <div class="faq">
           <details>
             <summary>Can I buy directly from the website?</summary>
-            <p>No. The website guides you through the process. Payment is made through our automated Till Number 5797885.</p>
+            <p>No. The website guides you through the process. Payment is made manually through M-PESA Buy Goods and Services using Till Number 5797885.</p>
           </details>
           <details>
             <summary>What Till Number should I use?</summary>
-            <p>Use our automated Till Number: <strong>5797885</strong>.</p>
+            <p>Use our M-PESA Buy Goods Till Number: <strong>5797885</strong>.</p>
           </details>
           <details>
             <summary>How fast will I receive my bundle?</summary>
-            <p>Our service is automated and the selected offer is delivered after successful payment.</p>
+            <p>After payment verification, KivTech manually processes your selected offer. Processing time may vary.</p>
           </details>
           <details>
             <summary>Can I buy a bundle for someone else?</summary>
@@ -1024,7 +1140,7 @@
       <div class="footer-grid">
         <div>
           <img src="kivtech-logo-transparent.png" alt="Kivtech Data Solutions" class="footer-logo">
-          <p>Fast, reliable, instant connectivity solutions with 24/7 automated service.</p>
+          <p>Affordable connectivity with clear M-PESA instructions and customer support.</p>
         </div>
 
         <div>
@@ -1074,10 +1190,20 @@
         <li><span class="num">4</span><span><strong>Enter Till Number 5797885</strong><br>Use the Copy Till button above to copy it.</span></li>
         <li><span class="num">5</span><span><strong>Enter the exact amount</strong><br>Enter <b id="modalAmountText">the selected offer price</b>.</span></li>
         <li><span class="num">6</span><span><strong>Confirm payment</strong><br>Check the details, enter your M-PESA PIN and confirm.</span></li>
-        <li><span class="num">7</span><span><strong>Receive your bundle</strong><br>Your existing automated service handles fulfilment after successful payment.</span></li>
+        <li><span class="num">7</span><span><strong>Receive your bundle</strong><br>KivTech verifies your payment confirmation and manually processes your bundle.</span></li>
       </ol>
       <div class="modal-warning">Please verify the offer name and amount before confirming your payment. Never share your M-PESA PIN with anyone.</div>
-      <button class="btn btn-primary" id="donePurchaseModal" type="button" style="width:100%;margin-top:18px">Got it — I'll pay with M-PESA</button>
+      <div class="confirmation-form">
+        <h3>After paying, share your confirmation</h3>
+        <p>Enter the Safaricom number receiving the bundle and your M-PESA transaction code. WhatsApp will open with the details ready to send to KivTech.</p>
+        <label for="recipientNumber">Recipient Safaricom number</label>
+        <input id="recipientNumber" type="tel" inputmode="tel" autocomplete="tel" placeholder="07XX XXX XXX" maxlength="13">
+        <label for="mpesaCode">M-PESA transaction code</label>
+        <input id="mpesaCode" type="text" autocomplete="off" placeholder="e.g. QAB12CD34E" maxlength="12">
+        <button class="btn btn-primary" id="sendConfirmation" type="button" style="width:100%;margin-top:12px">Send payment confirmation on WhatsApp</button>
+        <p class="confirmation-hint" id="confirmationHint" role="status">Do not enter your M-PESA PIN or password here.</p>
+      </div>
+      <button class="btn btn-light" id="donePurchaseModal" type="button" style="width:100%;margin-top:12px">Close instructions</button>
     </section>
   </div>
 
@@ -1088,6 +1214,18 @@
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
   <div class="toast" id="toast">Till number copied!</div>
+
+  <!-- Offer spotlight. This promotes real catalogue offers; it does not invent customer purchases. -->
+  <aside class="activity-toast" id="activityToast" aria-live="polite" aria-atomic="true" hidden>
+    <div class="activity-icon" aria-hidden="true">⚡</div>
+    <div class="activity-copy">
+      <small> KIVTECH OFFER SPOTLIGHT </small>
+      <strong id="activityTitle">Explore available offers</strong>
+      <span id="activityDetail">Affordable bundles, minutes and SMS.</span>
+      <button type="button" id="activityAction">View offer <span aria-hidden="true">→</span></button>
+    </div>
+    <button class="activity-close" type="button" id="activityClose" aria-label="Dismiss offer notification">×</button>
+  </aside>
 
   <script>
     // Mobile menu
@@ -1150,8 +1288,14 @@
     const categoryNames = {data:"Data Bundles",minutes:"Minutes",sms:"SMS",tunukiwa:"Tunukiwa",monthly:"Monthly Deals"};
     const offerGrid = document.getElementById("offerGrid");
     const catalogueIntro = document.getElementById("catalogueIntro");
-    function renderOffers(filter="all"){
-      const visible = filter === "all" ? offers : offers.filter(offer => offer.category === filter);
+    let activeFilter = "all";
+    const offerSearch = document.getElementById("offerSearch");
+    const catalogueCount = document.getElementById("catalogueCount");
+    function renderOffers(filter=activeFilter){
+      activeFilter = filter;
+      const query = (offerSearch?.value || "").trim().toLowerCase();
+      const filtered = filter === "all" ? offers : offers.filter(offer => offer.category === filter);
+      const visible = filtered.filter(offer => !query || `${offer.title} ${offer.category} ${offer.validity}`.toLowerCase().includes(query));
       offerGrid.innerHTML = visible.map(offer => `
         <article class="package" ${visible.findIndex(item => item.category === offer.category) === visible.indexOf(offer) ? `id="${offer.category}-offers"` : ""}>
           <span class="package-category">${categoryNames[offer.category]}</span>
@@ -1163,10 +1307,15 @@
             <button class="btn btn-copy-amount" type="button" data-copy-amount="${offer.price}">Copy Amount</button>
           </div>
         </article>`).join("");
-      catalogueIntro.textContent = filter === "all" ? "Browse all published packages, then follow the M-PESA steps below." : `Showing ${categoryNames[filter]} offers. Select an offer and pay the exact amount through M-PESA.`;
+      catalogueIntro.textContent = query
+        ? `Search results for “${query}”. Select an offer and follow the M-PESA instructions.`
+        : filter === "all" ? "Browse all published packages, then follow the M-PESA steps below." : `Showing ${categoryNames[filter]} offers. Select an offer and pay the exact amount through M-PESA.`;
+      if(catalogueCount) catalogueCount.textContent = `${visible.length} ${visible.length === 1 ? "offer" : "offers"} found`;
+      if(!visible.length) offerGrid.innerHTML = '<p class="catalogue-intro">No matching offers found. Try another search or category.</p>';
       document.querySelectorAll(".offer-tab").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)));
     }
     renderOffers();
+    offerSearch?.addEventListener("input", () => renderOffers(activeFilter));
     document.querySelectorAll(".offer-tab").forEach(button => button.addEventListener("click", () => renderOffers(button.dataset.filter)));
     document.querySelectorAll("[data-category-link]").forEach(link => link.addEventListener("click", () => renderOffers(link.dataset.categoryLink)));
 
@@ -1205,6 +1354,27 @@
       try{await navigator.clipboard.writeText(String(selectedOffer.price));showToast(`KSh ${selectedOffer.price.toLocaleString("en-KE")} copied!`)}
       catch{showToast(`Offer amount: KSh ${selectedOffer.price}`)}
     });
+    document.getElementById("sendConfirmation").addEventListener("click",()=>{
+      if(!selectedOffer)return;
+      const rawNumber=document.getElementById("recipientNumber").value.trim();
+      const recipient=rawNumber.replace(/[\\s-]/g,"");
+      const code=document.getElementById("mpesaCode").value.trim().toUpperCase();
+      const validNumber=/^(?:\+?254|0)7\d{8}$/.test(recipient);
+      const validCode=/^[A-Z0-9]{8,12}$/.test(code);
+      const hint=document.getElementById("confirmationHint");
+      if(!validNumber){hint.textContent="Please enter a valid Safaricom mobile number, for example 0712345678.";return;}
+      if(!validCode){hint.textContent="Please enter the M-PESA transaction code from your confirmation SMS.";return;}
+      const message=[
+        "Hello KivTech Data Solutions, I have made an M-PESA payment.",
+        `Offer: ${selectedOffer.title} (${categoryNames[selectedOffer.category]})`,
+        `Amount: KSh ${selectedOffer.price}`,
+        `Recipient number: ${recipient}`,
+        `M-PESA transaction code: ${code}`,
+        "Please verify the payment and process my bundle."
+      ].join("\\n");
+      window.open(`https://wa.me/254715024923?text=${encodeURIComponent(message)}`,"_blank","noopener");
+      hint.textContent="WhatsApp is opening with your details. Review the message and press Send there.";
+    });
     function showToast(message){toast.textContent=message;toast.classList.add("show");setTimeout(()=>{toast.classList.remove("show");toast.textContent="Till number copied!"},1800)}
 
     offerGrid.addEventListener("click", async event => {
@@ -1220,6 +1390,74 @@
         alert(`Offer amount: KSh ${amount}`);
       }
     });
+
+    // Rotating promotional hero banners
+    const heroSlides = [
+      {eyebrow:"SIMPLE & RELIABLE M-PESA PROCESS", title:'Fast data.<br><span>Simple.</span> Reliable.', copy:"Choose your offer, pay through our M-PESA Till, then share your confirmation for verification and processing."},
+      {eyebrow:"DATA, MINUTES & SMS IN ONE PLACE", title:'Stay connected.<br><span>Spend smarter.</span>', copy:"Explore Safaricom data bundles, voice minutes, SMS and monthly packages in one easy-to-browse catalogue."},
+      {eyebrow:"CLEAR PRICES. EASY STEPS.", title:'Your next bundle<br><span>is just a few steps away.</span>', copy:"Select a package, pay the exact amount using M-PESA Buy Goods and Services, then send your transaction details to KivTech for verification."}
+    ];
+    const heroEyebrow=document.querySelector(".hero .eyebrow");
+    const heroTitle=document.querySelector(".hero h1");
+    const heroCopy=document.querySelector(".hero-inner p");
+    let heroSlideIndex=0;
+    function setHeroSlide(index){
+      heroSlideIndex=index;
+      const slide=heroSlides[index];
+      heroEyebrow.textContent=slide.eyebrow;
+      heroTitle.innerHTML=slide.title;
+      heroCopy.textContent=slide.copy;
+      document.querySelectorAll(".hero-dot").forEach((dot,i)=>{
+        dot.classList.toggle("active",i===index);
+        dot.setAttribute("aria-pressed",String(i===index));
+      });
+    }
+    document.querySelectorAll(".hero-dot").forEach(dot=>dot.addEventListener("click",()=>setHeroSlide(Number(dot.dataset.heroSlide))));
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      setInterval(()=>setHeroSlide((heroSlideIndex+1)%heroSlides.length),6500);
+    }
+
+    // Rotating offer spotlight. Customer purchase claims are intentionally not fabricated.
+    // A real purchase feed can be connected here later when an order source/backend exists.
+    const activityToast = document.getElementById("activityToast");
+    const activityTitle = document.getElementById("activityTitle");
+    const activityDetail = document.getElementById("activityDetail");
+    const activityAction = document.getElementById("activityAction");
+    const activityClose = document.getElementById("activityClose");
+    const spotlightOffers = [
+      {index:0, title:"Explore 1 GB Data Bundle", detail:"KSh 22 · 1 hour validity"},
+      {index:5, title:"Explore 45 Minutes", detail:"KSh 21 · 3 hours validity"},
+      {index:12, title:"Explore 1,000 SMS", detail:"KSh 30 · 7 days validity"},
+      {index:17, title:"Explore Monthly Data", detail:"2.5 GB · KSh 250 · 30 days"}
+    ];
+    let spotlightIndex = 0;
+    let spotlightDismissed = false;
+    function showSpotlight(){
+      if(!activityToast || spotlightDismissed || document.hidden) return;
+      const item = spotlightOffers[spotlightIndex % spotlightOffers.length];
+      activityTitle.textContent = item.title;
+      activityDetail.textContent = item.detail;
+      activityAction.onclick = () => {
+        const offer = offers[item.index];
+        renderOffers(offer.category);
+        document.getElementById("offer-catalogue").scrollIntoView({behavior:"smooth"});
+        openPurchaseModal(offer);
+        activityToast.hidden = true;
+      };
+      activityToast.hidden = false;
+      spotlightIndex++;
+    }
+    activityClose?.addEventListener("click", () => {
+      spotlightDismissed = true;
+      activityToast.hidden = true;
+    });
+    if(activityToast && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      setTimeout(showSpotlight, 8500);
+      setInterval(() => {
+        if(!activityToast.hidden) activityToast.hidden = true;
+        setTimeout(showSpotlight, 900);
+      }, 22000);
+    }
 
     // Scroll-to-top
     const scrollTop = document.getElementById("scrollTop");
