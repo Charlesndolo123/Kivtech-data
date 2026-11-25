@@ -861,7 +861,23 @@
     .hero-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.42);cursor:pointer;transition:all .2s}
     .hero-dot.active{width:27px;border-radius:20px;background:#73edbd}
 
-  </style>
+
+/* KivTech promotional pop-up */
+.promo-popup[hidden]{display:none!important}
+.promo-popup{position:fixed;right:20px;bottom:20px;z-index:10000;width:min(360px,calc(100vw - 28px));box-sizing:border-box;padding:20px 42px 20px 20px;border-radius:16px;background:#071d2b;color:#fff;border:1px solid rgba(85,240,209,.55);box-shadow:0 12px 40px rgba(0,0,0,.3);animation:kivPromoIn .4s ease-out}
+.promo-popup.repeat{border-left:5px solid #21c58b}
+.promo-popup.daily{border-left:5px solid #e9aa36}
+.promo-popup-kicker{color:#55f0d1;font-size:11px;font-weight:800;letter-spacing:1.2px;margin-bottom:8px}
+.promo-popup-headline{font-size:17px;line-height:1.35;font-weight:850;margin-bottom:9px}
+.promo-popup-offer{font-size:23px;font-weight:900;margin-bottom:9px}
+.promo-popup-rule{color:#ff6666;font-size:12px;font-weight:900;font-style:italic;line-height:1.5;margin-bottom:14px}
+.promo-popup-shop{display:inline-block;padding:10px 16px;border-radius:8px;background:#21c58b;color:#06251e;text-decoration:none;font-size:12px;font-weight:900}
+.promo-popup-close{position:absolute;top:8px;right:10px;border:0;background:transparent;color:white;font-size:25px;cursor:pointer}
+@keyframes kivPromoIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:480px){.promo-popup{right:14px;bottom:14px}}
+@media(prefers-reduced-motion:reduce){.promo-popup{animation:none}}
+
+</style>
 </head>
 
 <body>
@@ -1290,7 +1306,7 @@
       {category:"sms", title:"1,500 SMS", price:101, validity:"7 days"},
       {category:"tunukiwa", title:"1 GB", price:23, validity:"1 hour; available midnight to 4 PM"},
       {category:"tunukiwa", title:"750 MB", price:55, validity:"24 hours"},
-      {category:"tunukiwa", title:"2 GB", price:105, validity:"24 hours"},
+      {category:"tunukiwa", title:"1.5 GB", price:105, validity:"24 hours"},
       {category:"monthly", title:"2.5 GB", price:250, validity:"30 days"},
       {category:"monthly", title:"7 GB", price:495, validity:"30 days"},
       {category:"monthly", title:"21 GB", price:990, validity:"30 days"},
@@ -1474,6 +1490,56 @@
         }
       }).catch(() => { /* No order feed: keep customer notifications hidden. */ });
 
+
+    // Rotating promotional offers; separate from verified customer notifications
+    const kivPromoPopup = document.getElementById("kivPromoPopup");
+    const kivPromoHeadline = document.getElementById("kivPromoHeadline");
+    const kivPromoOffer = document.getElementById("kivPromoOffer");
+    const kivPromoRule = document.getElementById("kivPromoRule");
+    const kivPromoShop = document.getElementById("kivPromoShop");
+    const kivPromoClose = document.getElementById("kivPromoClose");
+
+    const kivPromotions = [
+      {headline:"HII NAYO ISIKUPITE!",offer:"1.5GB — KSh 105",rule:"(BUY AS MANY TIMES AS YOU WANT PER DAY!)",type:"repeat"},
+      {headline:"BORA UKOSE KULALA, USIKOSE HII DEAL!",offer:"1GB — KSh 22",rule:"(ONLY ONE PURCHASE PER NUMBER PER DAY!)",type:"daily"},
+      {headline:"DATA INAISHAAA? USIPANIC!",offer:"1.5GB — KSh 99",rule:"(ONLY ONE PURCHASE PER NUMBER PER DAY!)",type:"daily"},
+      {headline:"BEI NI TAMU, DATA NI MOB!",offer:"60 MINUTES — KSh 51",rule:"(CHECK THE OFFER DETAILS BEFORE BUYING!)",type:"daily"}
+    ];
+
+    let kivPromoIndex = 0;
+    let kivPromoTimer;
+
+    function showKivPromo(){
+      if(!kivPromoPopup || document.hidden) return;
+      const promo = kivPromotions[kivPromoIndex % kivPromotions.length];
+      kivPromoHeadline.textContent = promo.headline;
+      kivPromoOffer.textContent = promo.offer;
+      kivPromoRule.textContent = promo.rule;
+      kivPromoPopup.classList.toggle("repeat",promo.type === "repeat");
+      kivPromoPopup.classList.toggle("daily",promo.type === "daily");
+      kivPromoPopup.hidden = false;
+      kivPromoIndex++;
+      clearTimeout(kivPromoTimer);
+      kivPromoTimer = setTimeout(()=>{kivPromoPopup.hidden = true;},7500);
+    }
+
+    kivPromoClose?.addEventListener("click",()=>{
+      kivPromoPopup.hidden = true;
+      clearTimeout(kivPromoTimer);
+    });
+
+    kivPromoShop?.addEventListener("click",()=>{
+      kivPromoPopup.hidden = true;
+      clearTimeout(kivPromoTimer);
+    });
+
+    if(kivPromoPopup){
+      setTimeout(()=>{
+        showKivPromo();
+        setInterval(showKivPromo,20000);
+      },6000);
+    }
+
     // Scroll-to-top
     const scrollTop = document.getElementById("scrollTop");
 
@@ -1488,5 +1554,15 @@
     // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+<div id="kivPromoPopup" class="promo-popup" hidden role="status" aria-live="polite">
+  <button type="button" class="promo-popup-close" id="kivPromoClose" aria-label="Close promotion">&times;</button>
+  <div class="promo-popup-kicker">KIVTECH SPECIAL OFFER</div>
+  <div class="promo-popup-headline" id="kivPromoHeadline"></div>
+  <div class="promo-popup-offer" id="kivPromoOffer"></div>
+  <div class="promo-popup-rule" id="kivPromoRule"></div>
+  <a class="promo-popup-shop" id="kivPromoShop" href="#offer-catalogue">SHOP NOW &rarr;</a>
+</div>
+
 </body>
 </html>
