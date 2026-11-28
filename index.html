@@ -912,6 +912,34 @@
     .hero-explore-arrow{display:inline-block;font-size:19px;line-height:1;animation:heroArrowBounce 1.25s ease-in-out infinite}
     @keyframes heroArrowBounce{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
     @media(prefers-reduced-motion:reduce){.hero-explore-arrow{animation:none}}
+
+    /* Footer: arrange quick links horizontally and keep the copyright centred. */
+    .footer-grid{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:28px;
+    }
+    .footer-grid>div{width:100%;text-align:center}
+    .footer-grid h3{text-align:center}
+    .footer-links{
+      display:flex;
+      flex-direction:row;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+      gap:12px 22px;
+    }
+    .footer-links a{display:inline-block;white-space:nowrap}
+    .footer-grid .contact-line{text-align:center}
+    .copyright{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      width:100%;
+    }
 </style>
 </head>
 
