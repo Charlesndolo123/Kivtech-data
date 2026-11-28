@@ -894,6 +894,10 @@
     .scroll-reveal.reveal-zoom.is-visible{transform:scale(1)}
     @media(prefers-reduced-motion:reduce){.scroll-reveal,.scroll-reveal.is-visible,.scroll-reveal.reveal-zoom,.scroll-reveal.reveal-zoom.is-visible{opacity:1;transform:none;transition:none;will-change:auto}}
 
+    .hero-explore-btn{display:inline-flex;align-items:center;gap:9px}
+    .hero-explore-arrow{display:inline-block;font-size:19px;line-height:1;animation:heroArrowBounce 1.25s ease-in-out infinite}
+    @keyframes heroArrowBounce{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
+    @media(prefers-reduced-motion:reduce){.hero-explore-arrow{animation:none}}
 </style>
 </head>
 
@@ -946,7 +950,7 @@
           <p>Explore our available data, minutes and SMS offers. Select what you need, make your payment and enjoy instant automated delivery, 24/7.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#services">Explore Offers →</a>
+            <a class="btn btn-primary hero-explore-btn" href="#services">Explore Offers <span class="hero-explore-arrow" aria-hidden="true">↓</span></a>
             <a class="btn btn-outline" href="#how-to-buy">How to Buy</a>
           </div>
 
