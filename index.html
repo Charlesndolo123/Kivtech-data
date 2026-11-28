@@ -451,8 +451,11 @@
     .btn:hover,.copy-btn:hover,.offer-tab:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(1,42,98,.16)}
     .btn:active,.copy-btn:active,.offer-tab:active{transform:scale(.97)}
     .package .btn-primary{background:linear-gradient(135deg,#064b83,#012a62);color:#fff;box-shadow:0 8px 20px rgba(1,42,98,.24);border:1px solid rgba(85,240,209,.35)}
+    .package .buy-now-button{width:100%;min-height:62px;padding:8px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:12px;background:#063b70;color:#fff}
+    .buy-now-main{display:flex;align-items:center;justify-content:center;gap:6px;line-height:1.15}
+    .buy-now-bolt{display:inline-block;color:#fff;font-size:1.05em;line-height:1}
+    .buy-now-caption{display:block;color:#c7fceb;font-size:10px;font-weight:600;line-height:1.2;letter-spacing:.15px}
     @keyframes buyNowTextPulse{0%,100%{transform:scale(1);color:#fff;text-shadow:0 0 0 rgba(85,240,209,0)}50%{transform:scale(1.1);color:#7fffe0;text-shadow:0 0 10px rgba(85,240,209,.75)}}
-    .buy-now-bolt{display:inline-block;margin-right:7px;color:#7fffe0;font-size:1.05em;vertical-align:-1px}
     .buy-now-text{display:inline-block;transform-origin:center;animation:buyNowTextPulse 1.35s ease-in-out infinite}
     @media(prefers-reduced-motion:reduce){.buy-now-text{animation:none!important}}
     .package .btn-primary:hover{background:var(--navy);color:#fff}
@@ -1295,7 +1298,7 @@
           <div class="package-price">KSh ${offer.price.toLocaleString("en-KE")}</div>
           <p class="package-validity">Validity: ${offer.validity}</p>
           <div class="buy-guide">
-            <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}"><span class="buy-now-bolt" aria-hidden="true">⚡</span><span class="buy-now-text">BUY NOW</span></button>
+            <button class="btn btn-primary buy-now-button" type="button" data-buy-offer="${offers.indexOf(offer)}"><span class="buy-now-main"><span class="buy-now-bolt" aria-hidden="true">⚡</span><span class="buy-now-text">BUY NOW</span></span><span class="buy-now-caption">Fast, instant offer purchase</span></button>
           </div>
         </article>`).join("");
       catalogueIntro.textContent = query
