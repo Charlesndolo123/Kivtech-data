@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.kivtechdatasolutions.co.ke/</loc><lastmod>2026-11-25</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/</loc><lastmod>2026-11-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/data-bundles/</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/</loc><lastmod>2026-11-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/data-bundles/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/technology/</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/latest-gadgets/</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/smartphones/</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/kenya-guides/</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/category/kenya-guides/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/bingwa-sokoni-data-bundles-explained-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/choosing-the-right-data-bundle-for-your-usage/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/save-mobile-data-on-android-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -22,4 +22,8 @@
   <url><loc>https://www.kivtechdatasolutions.co.ke/terms.html</loc><lastmod>2026-11-25</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/refund-policy.html</loc><lastmod>2026-11-25</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.kivtechdatasolutions.co.ke/blog/how-to-check-safaricom-data-balance-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/safaricom-data-bundles-daily-weekly-monthly-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/safaricom-bonga-points-check-transfer-redeem-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/reverse-safaricom-airtime-bought-by-mistake-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kivtechdatasolutions.co.ke/blog/safaricom-airtime-to-mpesa-cash-kenya/</loc><lastmod>2026-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
