@@ -249,7 +249,7 @@
 
     .offer-spotlight{min-height:390px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(150deg,#ffffff 0%,#f0fbf8 100%);border:1px solid rgba(255,255,255,.8)}
     .spotlight-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
-    .spotlight-count{font-size:12px;font-weight:900;color:var(--muted);font-variant-numeric:tabular-nums}
+    .offer-spotlight .offer-label{animation:none;background:var(--teal-soft);color:var(--teal-dark);border:1px solid #ccefe2;letter-spacing:.6px}
     .spotlight-category{display:inline-block;color:var(--teal-dark);font-size:12px;font-weight:950;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
     .offer-spotlight h2{font-size:clamp(42px,5vw,60px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px;overflow-wrap:anywhere}
     .offer-spotlight .offer-price{font-size:clamp(42px,5vw,58px);margin-bottom:12px}
@@ -965,8 +965,7 @@
 
         <div class="offer-card offer-spotlight" aria-label="Rotating featured offers">
           <div class="spotlight-topline">
-            <span class="offer-label">TODAY'S OFFER SPOTLIGHT</span>
-            <span class="spotlight-count" id="spotlightCount">01 / 21</span>
+            <span class="offer-label">TODAY'S SPECIAL OFFER</span>
           </div>
           <span class="spotlight-category" id="spotlightCategory">DATA BUNDLES</span>
           <h2 id="spotlightName">1 GB</h2>
@@ -1300,11 +1299,11 @@
       {category:"data", title:"400 MB", price:49, validity:"7 days"},
       {category:"data", title:"750 MB", price:55, validity:"24 hours"},
       {category:"data", title:"1.5 GB", price:99, validity:"24 hours"},
-      {category:"minutes", title:"45 minutes", price:21, validity:"3 hours"},
-      {category:"minutes", title:"60 minutes", price:51, validity:"Until midnight"},
-      {category:"minutes", title:"250 minutes", price:200, validity:"7 days"},
-      {category:"minutes", title:"300 minutes", price:500, validity:"30 days"},
-      {category:"minutes", title:"1,250 minutes", price:1000, validity:"30 days"},
+      {category:"minutes", title:"45 mins", price:21, validity:"3 hours"},
+      {category:"minutes", title:"60 mins", price:51, validity:"Until midnight"},
+      {category:"minutes", title:"250 mins", price:200, validity:"7 days"},
+      {category:"minutes", title:"300 mins", price:500, validity:"30 days"},
+      {category:"minutes", title:"1,250 mins", price:1000, validity:"30 days"},
       {category:"sms", title:"20 SMS", price:5, validity:"1 day"},
       {category:"sms", title:"200 SMS", price:10, validity:"1 day"},
       {category:"sms", title:"1,000 SMS", price:30, validity:"7 days"},
@@ -1315,9 +1314,9 @@
       {category:"monthly", title:"2.5 GB", price:250, validity:"30 days"},
       {category:"monthly", title:"7 GB", price:495, validity:"30 days"},
       {category:"monthly", title:"21 GB", price:990, validity:"30 days"},
-      {category:"monthly", title:"8 GB + 400 minutes", price:999, validity:"30 days"}
+      {category:"monthly", title:"8 GB + 400 mins", price:999, validity:"30 days"}
     ];
-    const categoryNames = {data:"Data Bundles",minutes:"Minutes",sms:"SMS",tunukiwa:"Tunukiwa",monthly:"Monthly Deals"};
+    const categoryNames = {data:"Data Bundles",minutes:"Mins",sms:"SMS",tunukiwa:"Tunukiwa",monthly:"Monthly Deals"};
     const offerGrid = document.getElementById("offerGrid");
     const catalogueIntro = document.getElementById("catalogueIntro");
     let activeFilter = "all";
@@ -1393,7 +1392,6 @@
       name: document.getElementById("spotlightName"),
       price: document.getElementById("spotlightPrice"),
       validity: document.getElementById("spotlightValidity"),
-      count: document.getElementById("spotlightCount"),
       card: document.querySelector(".offer-spotlight")
     };
     let spotlightIndex = 0;
@@ -1406,7 +1404,6 @@
       spotlightElements.name.textContent = offer.title;
       spotlightElements.price.textContent = `KSh ${offer.price.toLocaleString("en-KE")}`;
       spotlightElements.validity.textContent = `Validity: ${offer.validity}`;
-      spotlightElements.count.textContent = `${String(spotlightIndex+1).padStart(2,"0")} / ${String(offers.length).padStart(2,"0")}`;
       spotlightElements.card.classList.add("is-changing");
     }
     document.getElementById("spotlightBuy").addEventListener("click",()=>openPurchaseModal(offers[spotlightIndex]));
