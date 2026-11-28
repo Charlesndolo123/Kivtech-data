@@ -452,6 +452,7 @@
     .btn:active,.copy-btn:active,.offer-tab:active{transform:scale(.97)}
     .package .btn-primary{background:linear-gradient(135deg,#064b83,#012a62);color:#fff;box-shadow:0 8px 20px rgba(1,42,98,.24);border:1px solid rgba(85,240,209,.35)}
     @keyframes buyNowTextPulse{0%,100%{transform:scale(1);color:#fff;text-shadow:0 0 0 rgba(85,240,209,0)}50%{transform:scale(1.1);color:#7fffe0;text-shadow:0 0 10px rgba(85,240,209,.75)}}
+    .buy-now-bolt{display:inline-block;margin-right:7px;color:#7fffe0;font-size:1.05em;vertical-align:-1px}
     .buy-now-text{display:inline-block;transform-origin:center;animation:buyNowTextPulse 1.35s ease-in-out infinite}
     @media(prefers-reduced-motion:reduce){.buy-now-text{animation:none!important}}
     .package .btn-primary:hover{background:var(--navy);color:#fff}
@@ -1294,7 +1295,7 @@
           <div class="package-price">KSh ${offer.price.toLocaleString("en-KE")}</div>
           <p class="package-validity">Validity: ${offer.validity}</p>
           <div class="buy-guide">
-            <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}"><span class="buy-now-text">BUY NOW</span></button>
+            <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}"><span class="buy-now-bolt" aria-hidden="true">⚡</span><span class="buy-now-text">BUY NOW</span></button>
           </div>
         </article>`).join("");
       catalogueIntro.textContent = query
