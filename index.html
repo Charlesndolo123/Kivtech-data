@@ -1416,7 +1416,12 @@
     }
     document.getElementById("spotlightBuy").addEventListener("click",()=>openPurchaseModal(offers[spotlightIndex]));
     document.getElementById("spotlightPrev").addEventListener("click",()=>showSpotlightOffer(spotlightIndex-1));
-    document.getElementById("spotlightNext").addEventListener("click",()=>showSpotlightOffer(spotlightIndex+1));
+    document.getElementById("spotlightNext").addEventListener("click",()=>{
+      // The circular right-arrow takes visitors directly to the full offer catalogue.
+      if(offerSearch) offerSearch.value = "";
+      renderOffers("all");
+      document.getElementById("offer-catalogue").scrollIntoView({behavior:"smooth",block:"start"});
+    });
     showSpotlightOffer(0);
     let spotlightTimer = setInterval(()=>showSpotlightOffer(spotlightIndex+1),5000);
     spotlightElements.card.addEventListener("mouseenter",()=>clearInterval(spotlightTimer));
