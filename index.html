@@ -275,37 +275,18 @@
     @media(max-width:900px){.offer-spotlight{min-height:330px}}
     @media(max-width:520px){.offer-spotlight{min-height:0;padding:22px}.spotlight-topline{margin-bottom:12px}.spotlight-meta{gap:3px}.offer-spotlight .offer-note{font-size:10px}.spotlight-frequency{font-size:9px}}
     
-    /* TILL BAR */
-    .till-wrap{margin-top:-30px;position:relative;z-index:5}
-    .till-card{
-      background:var(--navy);
-      color:#fff;
-      border:5px solid #fff;
-      box-shadow:var(--shadow);
-      border-radius:25px;
-      padding:22px 25px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-    .till-label{font-size:13px;color:#bcd5ef;font-weight:800}
-    .till-number{
-      color:#55f0d1;
-      font-size:clamp(30px,5vw,48px);
-      line-height:1;
-      font-weight:950;
-      letter-spacing:1px;
-    }
-    .till-copy{font-size:13px;color:#d8e8f7}
-    .copy-btn{
-      white-space:nowrap;
-      background:#fff;color:var(--navy);
-      border:0;border-radius:12px;
-      padding:13px 18px;
-      font-weight:900;cursor:pointer;
-    }
-    .copy-btn:hover{background:var(--teal-soft)}
+    /* KIVTECH TRUST STATS */
+    .trust-wrap{position:relative;z-index:5;margin-top:-30px}
+    .trust-panel{background:linear-gradient(135deg,#062b60,#064b83);color:#fff;border:5px solid #fff;border-radius:25px;box-shadow:var(--shadow);padding:30px 28px 27px}
+    .trust-heading{text-align:center;margin:0 auto 24px;max-width:720px}
+    .trust-heading h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;color:#fff;margin-bottom:8px}
+    .trust-heading p{font-size:13px;line-height:1.6;color:#d8e8f7}
+    .trust-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .trust-stat{text-align:center;padding:12px 8px;border-right:1px solid rgba(255,255,255,.18)}
+    .trust-stat:last-child{border-right:0}
+    .trust-stat-number{display:block;color:#55f0d1;font-size:clamp(27px,4vw,40px);font-weight:950;line-height:1.1;letter-spacing:-1px}
+    .trust-stat-label{display:block;margin-top:7px;color:#fff;font-size:12px;font-weight:800;line-height:1.4}
+    @media(max-width:650px){.trust-panel{padding:24px 15px}.trust-stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:10px}.trust-stat:nth-child(2){border-right:0}.trust-stat:nth-child(3){border-right:1px solid rgba(255,255,255,.18)}.trust-stat:nth-child(3),.trust-stat:nth-child(4){border-top:1px solid rgba(255,255,255,.18);padding-top:18px}}
 
     /* SECTION */
     .section{padding:80px 0}
@@ -1006,17 +987,33 @@
       </div>
     </section>
 
-    <!-- TILL -->
-    <div class="container till-wrap">
-      <div class="till-card">
-        <div>
-          <div class="till-label">OUR M-PESA BUY GOODS TILL</div>
-          <div class="till-number">5797885</div>
+    <!-- KIVTECH TRUST STATS -->
+    <section class="container trust-wrap" aria-labelledby="trust-heading">
+      <div class="trust-panel">
+        <div class="trust-heading">
+          <h2 id="trust-heading">Growing Together, Connecting Kenya.</h2>
+          <p>Making data, minutes and SMS offers accessible through simple, secure and automated service — wherever you are in Kenya.</p>
         </div>
-        <button class="copy-btn" id="copyTill">▣ Copy Till</button>
-        <div class="till-copy">Pay via M-PESA and receive your selected offer automatically after successful payment.</div>
+        <div class="trust-stats">
+          <div class="trust-stat">
+            <span class="trust-stat-number" data-count="500" data-suffix="+">0</span>
+            <span class="trust-stat-label">Customers using KivTech</span>
+          </div>
+          <div class="trust-stat">
+            <span class="trust-stat-number" data-count="47" data-suffix="">0</span>
+            <span class="trust-stat-label">Counties across Kenya</span>
+          </div>
+          <div class="trust-stat">
+            <span class="trust-stat-number">24/7</span>
+            <span class="trust-stat-label">Automated service</span>
+          </div>
+          <div class="trust-stat">
+            <span class="trust-stat-number">22</span>
+            <span class="trust-stat-label">Available offers</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- SERVICES -->
     <section class="section" id="services">
@@ -1302,21 +1299,6 @@
       });
     });
 
-    // Copy Till
-    const copyTill = document.getElementById("copyTill");
-    const toast = document.getElementById("toast");
-
-    copyTill.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText("5797885");
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 1800);
-      } catch {
-        alert("Our Till Number is 5797885");
-      }
-    });
-
-
     // Offer catalogue: values transcribed from the KivTech offer poster.
     const offers = [
       {category:"data", title:"1 GB", price:22, validity:"1 hour; available midnight to 4 PM", frequency:"Once per day"},
@@ -1350,12 +1332,34 @@
     const catalogueCount = document.getElementById("catalogueCount");
 
     // Reveal content gently as it enters the viewport; cards use a short stagger.
-    const revealSelector = ".section-head, .service, .step, .benefit, .package, .till-card, .promo, .faq details, .footer-grid > div";
+    const revealSelector = ".section-head, .service, .step, .benefit, .package, .trust-stat, .promo, .faq details, .footer-grid > div";
     const revealObserver = !window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window
       ? new IntersectionObserver(entries => {
           entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             entry.target.classList.add("is-visible");
+            if (entry.target.matches(".trust-stat")) {
+              const counter = entry.target.querySelector("[data-count]");
+              if (counter && !counter.dataset.counted) {
+                counter.dataset.counted = "true";
+                const target = Number(counter.dataset.count);
+                const suffix = counter.dataset.suffix || "";
+                const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                if (reducedMotion) {
+                  counter.textContent = target.toLocaleString("en-KE") + suffix;
+                } else {
+                  const start = performance.now();
+                  const duration = 1500;
+                  const tick = now => {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    counter.textContent = Math.round(target * eased).toLocaleString("en-KE") + suffix;
+                    if (progress < 1) requestAnimationFrame(tick);
+                  };
+                  requestAnimationFrame(tick);
+                }
+              }
+            }
             revealObserver.unobserve(entry.target);
           });
         }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"})
