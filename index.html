@@ -451,6 +451,9 @@
     .btn:hover,.copy-btn:hover,.offer-tab:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(1,42,98,.16)}
     .btn:active,.copy-btn:active,.offer-tab:active{transform:scale(.97)}
     .package .btn-primary{background:linear-gradient(135deg,#00d0aa,#00ad91);color:#032c29;box-shadow:0 8px 18px rgba(0,183,153,.22)}
+    @keyframes buyNowTextPulse{0%,100%{transform:scale(1);text-shadow:0 0 0 rgba(3,44,41,0)}50%{transform:scale(1.09);text-shadow:0 0 9px rgba(3,44,41,.28)}}
+    .buy-now-text{display:inline-block;transform-origin:center;animation:buyNowTextPulse 1.35s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){.buy-now-text{animation:none!important}}
     .package .btn-primary:hover{background:var(--navy);color:#fff}
     .offer-label:focus-visible,.btn:focus-visible,.copy-btn:focus-visible,.offer-tab:focus-visible{outline:3px solid #ffbd2e;outline-offset:3px}
     .purchase-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(1,20,45,.72);backdrop-filter:blur(7px)}
@@ -1291,7 +1294,7 @@
           <div class="package-price">KSh ${offer.price.toLocaleString("en-KE")}</div>
           <p class="package-validity">Validity: ${offer.validity}</p>
           <div class="buy-guide">
-            <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}">Buy Now</button>
+            <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}"><span class="buy-now-text">BUY NOW</span></button>
           </div>
         </article>`).join("");
       catalogueIntro.textContent = query
