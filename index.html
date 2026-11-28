@@ -1211,8 +1211,8 @@
         <li><span class="num">2</span><span><strong>Pay the exact amount</strong><br>Pay <b id="modalAmountText">the selected offer price</b> to automated Till Number <strong>5797885</strong> using M-PESA Buy Goods.</span></li>
         <li><span class="num">3</span><span><strong>Receive your offer automatically</strong><br>Our 24/7 system dispenses the selected package after successful payment. Confirmation messages follow from KivTech and Safaricom.</span></li>
       </ol>
-      <div class="modal-warning">Please verify the offer name and amount before confirming your payment. Never share your M-PESA PIN with anyone.</div>
-      <p class="confirmation-hint">Keep your M-PESA transaction message for reference. Never share your M-PESA PIN or one-time password with anyone. If delivery appears delayed, contact support before paying again.</p>
+      <div class="modal-warning">Please note that Safaricom confirmation messages may sometimes be delayed. Always dial *544*44# to check your offer balance. Never share your M-PESA PIN with anyone.</div>
+      <p class="confirmation-hint">Keep your M-PESA transaction message for reference. Never share your M-PESA PIN or one-time password with anyone. If your offer balance does not update after checking, contact KivTech support before making another payment.</p>
       <button class="btn btn-light" id="donePurchaseModal" type="button" style="width:100%;margin-top:12px">Close instructions</button>
     </section>
   </div>
@@ -1329,7 +1329,7 @@
     document.querySelectorAll(".offer-tab").forEach(button => button.addEventListener("click", () => renderOffers(button.dataset.filter)));
     document.querySelectorAll("[data-category-link]").forEach(link => link.addEventListener("click", () => renderOffers(link.dataset.categoryLink)));
 
-    // Offer-specific Buy Now modal: the website provides instructions only; M-PESA payment is manual.
+    // Offer-specific Buy Now modal: customers pay through M-PESA and the 24/7 system automatically dispenses the selected offer.
     const purchaseModal = document.getElementById("purchaseModal");
     const closePurchaseModal = document.getElementById("closePurchaseModal");
     let selectedOffer = null;
@@ -1382,9 +1382,9 @@
 
     // Rotating promotional hero banners
     const heroSlides = [
-      {eyebrow:"SIMPLE & RELIABLE M-PESA PROCESS", title:'Fast data.<br><span>Simple.</span> Reliable.', copy:"Choose your offer, pay through our M-PESA Till, then share your confirmation for verification and processing."},
+      {eyebrow:"SIMPLE & RELIABLE M-PESA PROCESS", title:'Fast data.<br><span>Simple.</span> Reliable.', copy:"Choose your offer and pay the exact amount through our M-PESA Till. Our automated 24/7 system dispenses your offer after successful payment."},
       {eyebrow:"DATA, MINUTES & SMS IN ONE PLACE", title:'Stay connected.<br><span>Spend smarter.</span>', copy:"Explore Safaricom data bundles, voice minutes, SMS and monthly packages in one easy-to-browse catalogue."},
-      {eyebrow:"CLEAR PRICES. EASY STEPS.", title:'Your next bundle<br><span>is just a few steps away.</span>', copy:"Select a package, pay the exact amount using M-PESA Buy Goods and Services, then send your transaction details to KivTech for verification."}
+      {eyebrow:"CLEAR PRICES. EASY STEPS.", title:'Your next bundle<br><span>is just a few steps away.</span>', copy:"Select a package and pay the exact amount using M-PESA Buy Goods and Services. Our automated system dispenses your offer after successful payment."}
     ];
     const heroEyebrow=document.querySelector(".hero .eyebrow");
     const heroTitle=document.querySelector(".hero h1");
