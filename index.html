@@ -247,6 +247,22 @@
       font-size:40px;
     }
 
+    .offer-spotlight{min-height:390px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(150deg,#ffffff 0%,#f0fbf8 100%);border:1px solid rgba(255,255,255,.8)}
+    .spotlight-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
+    .spotlight-count{font-size:12px;font-weight:900;color:var(--muted);font-variant-numeric:tabular-nums}
+    .spotlight-category{display:inline-block;color:var(--teal-dark);font-size:12px;font-weight:950;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
+    .offer-spotlight h2{font-size:clamp(42px,5vw,60px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px;overflow-wrap:anywhere}
+    .offer-spotlight .offer-price{font-size:clamp(42px,5vw,58px);margin-bottom:12px}
+    .offer-spotlight .offer-note{min-height:42px;margin-bottom:18px}
+    .spotlight-buy{width:100%;min-height:54px;font-size:16px;letter-spacing:.5px}
+    .spotlight-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;color:var(--muted);font-size:12px;font-weight:800}
+    .spotlight-controls button{width:40px;height:40px;border:1px solid #d7e7e3;border-radius:50%;background:#fff;color:var(--navy);font-size:20px;font-weight:900;cursor:pointer}
+    .spotlight-controls button:hover{background:var(--navy);color:#fff}
+    .offer-spotlight.is-changing{animation:spotlightIn .28s ease}
+    @keyframes spotlightIn{from{opacity:.45;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){.offer-spotlight{min-height:350px}}
+    @media(max-width:520px){.offer-spotlight{min-height:0;padding:24px}.spotlight-topline{margin-bottom:14px}}
+    
     /* TILL BAR */
     .till-wrap{margin-top:-30px;position:relative;z-index:5}
     .till-card{
@@ -947,15 +963,21 @@
           </div>
         </div>
 
-        <div class="offer-card">
-          <span class="offer-label">LIMITED-TIME FEATURED OFFER</span>
-          <h2>1GB <small>FOR ONLY</small></h2>
-          <div class="offer-price">KSh 55</div>
-          <div class="offer-deadline">UNTIL MIDNIGHT</div>
-          <p class="offer-note">
-            Featured promotion shown on your offer poster. Valid until midnight.
-          </p>
-          <div class="mini-phone">📱 ⚡ 📶</div>
+        <div class="offer-card offer-spotlight" aria-label="Rotating featured offers">
+          <div class="spotlight-topline">
+            <span class="offer-label">TODAY'S OFFER SPOTLIGHT</span>
+            <span class="spotlight-count" id="spotlightCount">01 / 21</span>
+          </div>
+          <span class="spotlight-category" id="spotlightCategory">DATA BUNDLES</span>
+          <h2 id="spotlightName">1 GB</h2>
+          <div class="offer-price" id="spotlightPrice">KSh 22</div>
+          <p class="offer-note" id="spotlightValidity">Validity: 1 hour; available midnight to 4 PM</p>
+          <button class="btn btn-primary spotlight-buy" id="spotlightBuy" type="button">BUY NOW <span aria-hidden="true">→</span></button>
+          <div class="spotlight-controls">
+            <button type="button" id="spotlightPrev" aria-label="Previous offer">←</button>
+            <span>Explore our offers</span>
+            <button type="button" id="spotlightNext" aria-label="Next offer">→</button>
+          </div>
         </div>
       </div>
     </section>
@@ -1365,6 +1387,37 @@
       catch{showToast(`Offer amount: KSh ${selectedOffer.price}`)}
     });
     function showToast(message){toast.textContent=message;toast.classList.add("show");setTimeout(()=>{toast.classList.remove("show");toast.textContent="Till number copied!"},1800)}
+    // Rotating homepage offer spotlight, using the same offers and purchase modal as the catalogue.
+    const spotlightElements = {
+      category: document.getElementById("spotlightCategory"),
+      name: document.getElementById("spotlightName"),
+      price: document.getElementById("spotlightPrice"),
+      validity: document.getElementById("spotlightValidity"),
+      count: document.getElementById("spotlightCount"),
+      card: document.querySelector(".offer-spotlight")
+    };
+    let spotlightIndex = 0;
+    function showSpotlightOffer(index){
+      spotlightIndex = (index + offers.length) % offers.length;
+      const offer = offers[spotlightIndex];
+      spotlightElements.card.classList.remove("is-changing");
+      void spotlightElements.card.offsetWidth;
+      spotlightElements.category.textContent = categoryNames[offer.category];
+      spotlightElements.name.textContent = offer.title;
+      spotlightElements.price.textContent = `KSh ${offer.price.toLocaleString("en-KE")}`;
+      spotlightElements.validity.textContent = `Validity: ${offer.validity}`;
+      spotlightElements.count.textContent = `${String(spotlightIndex+1).padStart(2,"0")} / ${String(offers.length).padStart(2,"0")}`;
+      spotlightElements.card.classList.add("is-changing");
+    }
+    document.getElementById("spotlightBuy").addEventListener("click",()=>openPurchaseModal(offers[spotlightIndex]));
+    document.getElementById("spotlightPrev").addEventListener("click",()=>showSpotlightOffer(spotlightIndex-1));
+    document.getElementById("spotlightNext").addEventListener("click",()=>showSpotlightOffer(spotlightIndex+1));
+    showSpotlightOffer(0);
+    let spotlightTimer = setInterval(()=>showSpotlightOffer(spotlightIndex+1),5000);
+    spotlightElements.card.addEventListener("mouseenter",()=>clearInterval(spotlightTimer));
+    spotlightElements.card.addEventListener("mouseleave",()=>{clearInterval(spotlightTimer);spotlightTimer=setInterval(()=>showSpotlightOffer(spotlightIndex+1),5000)});
+    spotlightElements.card.addEventListener("focusin",()=>clearInterval(spotlightTimer));
+    spotlightElements.card.addEventListener("focusout",()=>{clearInterval(spotlightTimer);spotlightTimer=setInterval(()=>showSpotlightOffer(spotlightIndex+1),5000)});
 
     offerGrid.addEventListener("click", async event => {
       const buyButton = event.target.closest("[data-buy-offer]");
