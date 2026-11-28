@@ -940,6 +940,22 @@
       text-align:center;
       width:100%;
     }
+
+    /* Offer cards: keep Buy Now as the single action, with a subtle continuous glow. */
+    .package .btn-primary:before{content:none!important;display:none!important}
+    .package .buy-guide{display:flex;gap:0}
+    .package .buy-guide .btn-primary{
+      width:100%;
+      animation:offerBuyGlow 2.4s ease-in-out infinite;
+      will-change:transform,box-shadow;
+    }
+    @keyframes offerBuyGlow{
+      0%,100%{transform:translateY(0);box-shadow:0 6px 16px rgba(0,173,145,.22)}
+      50%{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,173,145,.42),0 0 0 4px rgba(0,208,170,.10)}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .package .buy-guide .btn-primary{animation:none}
+    }
 </style>
 </head>
 
@@ -1276,7 +1292,6 @@
           <p class="package-validity">Validity: ${offer.validity}</p>
           <div class="buy-guide">
             <button class="btn btn-primary" type="button" data-buy-offer="${offers.indexOf(offer)}">Buy Now</button>
-            <button class="btn btn-copy-amount" type="button" data-copy-amount="${offer.price}">Copy Amount</button>
           </div>
         </article>`).join("");
       catalogueIntro.textContent = query
@@ -1366,18 +1381,9 @@
     spotlightElements.card.addEventListener("focusin",()=>clearInterval(spotlightTimer));
     spotlightElements.card.addEventListener("focusout",()=>{clearInterval(spotlightTimer);spotlightTimer=setInterval(()=>showSpotlightOffer(spotlightIndex+1),5000)});
 
-    offerGrid.addEventListener("click", async event => {
+    offerGrid.addEventListener("click", event => {
       const buyButton = event.target.closest("[data-buy-offer]");
-      if(buyButton){openPurchaseModal(offers[Number(buyButton.dataset.buyOffer)]);return;}
-      const button = event.target.closest("[data-copy-amount]");
-      if (!button) return;
-      const amount = button.dataset.copyAmount;
-      try {
-        await navigator.clipboard.writeText(amount);
-        showToast(`KSh ${Number(amount).toLocaleString("en-KE")} copied!`);
-      } catch {
-        alert(`Offer amount: KSh ${amount}`);
-      }
+      if(buyButton) openPurchaseModal(offers[Number(buyButton.dataset.buyOffer)]);
     });
 
     // The welcome hero is intentionally static; offer rotation remains in the spotlight card.
