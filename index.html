@@ -956,12 +956,6 @@
             <span>✓ Instant</span>
             <span>✓ Automated 24/7</span>
           </div>
-          <div class="hero-dots" role="group" aria-label="Promotional banner slides">
-            <button type="button" class="hero-dot active" data-hero-slide="0" aria-label="Show welcome slide" aria-pressed="true"></button>
-            <button type="button" class="hero-dot" data-hero-slide="1" aria-label="Show simple slide" aria-pressed="false"></button>
-            <button type="button" class="hero-dot" data-hero-slide="2" aria-label="Show secure slide" aria-pressed="false"></button>
-            <button type="button" class="hero-dot" data-hero-slide="3" aria-label="Show instant slide" aria-pressed="false"></button>
-          </div>
         </div>
 
         <div class="offer-card offer-spotlight" aria-label="Rotating featured offers">
@@ -1497,32 +1491,7 @@
       }
     });
 
-    // Rotating promotional hero banners
-    const heroSlides = [
-      {eyebrow:"WELCOME TO KIVTECH DATA SOLUTIONS", title:'Uko na Okoa? Usitense.<br><span>Jinyakulie offer yako leo.</span>', copy:"Explore our available data, minutes and SMS offers. Select what you need, make your payment and enjoy instant automated delivery, 24/7."},
-      {eyebrow:"SIMPLE", title:'Simple.<br><span>Choose. Copy. Pay.</span>', copy:"Select your preferred offer, copy our automated M-PESA Till Number, and pay the exact amount. It's that easy."},
-      {eyebrow:"SECURE", title:'Secure.<br><span>Know what to expect.</span>', copy:"After your payment is successful, KivTech sends you a confirmation message showing the exact offer you are about to receive."},
-      {eyebrow:"INSTANT · AUTOMATED 24/7", title:'Instant.<br><span>Delivered immediately.</span>', copy:"Your successful payment notification triggers our automated system, which dispenses your selected offer immediately — 24 hours a day, 7 days a week."}
-    ];
-    const heroEyebrow=document.querySelector(".hero .eyebrow");
-    const heroTitle=document.querySelector(".hero h1");
-    const heroCopy=document.querySelector(".hero-inner p");
-    let heroSlideIndex=0;
-    function setHeroSlide(index){
-      heroSlideIndex=index;
-      const slide=heroSlides[index];
-      heroEyebrow.textContent=slide.eyebrow;
-      heroTitle.innerHTML=slide.title;
-      heroCopy.textContent=slide.copy;
-      document.querySelectorAll(".hero-dot").forEach((dot,i)=>{
-        dot.classList.toggle("active",i===index);
-        dot.setAttribute("aria-pressed",String(i===index));
-      });
-    }
-    document.querySelectorAll(".hero-dot").forEach(dot=>dot.addEventListener("click",()=>setHeroSlide(Number(dot.dataset.heroSlide))));
-    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-      setInterval(()=>setHeroSlide((heroSlideIndex+1)%heroSlides.length),6500);
-    }
+    // The welcome hero is intentionally static; offer rotation remains in the spotlight card.
 
     // Customer notifications are displayed only from verified, consented order records.
     // Populate /recent-orders.json with real orders after payment and delivery are confirmed.
